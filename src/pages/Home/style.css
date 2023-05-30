@@ -1,0 +1,63 @@
+/* h1
+Basic Sans Thin
+font-family: "basic-sans", sans-serif;
+font-weight: 100;
+font-style: normal; 
+*/
+
+/* nav
+Basic Sans SemiBold It
+font-family: "basic-sans", sans-serif;
+font-weight: 600;
+font-style: italic; */
+
+/* logo
+Basic Sans Regular
+color: var(--primary);
+font-family: "basic-sans", sans-serif;
+font-weight: 400;
+font-style: normal; */
+
+
+
+
+
+:root {
+    --bgGrn: #15261c;
+    --cardGrn:#253f30; 
+    --hdBlk:  #0e1812;
+    --primary: #acaa82;
+    --accentLight: #d8d1bc;
+    --accentDark: #7f7c3d;
+    --accentPlum: #65293d;
+ }
+
+
+h1{
+    font-family: "basic-sans", sans-serif;
+    font-weight: 50;
+    font-style: normal; 
+    color: var(--primary);
+    font-size:3rem;
+}
+h3{
+    color: var(--primary);
+    font-family: "basic-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.w_card{
+    width:40rem;
+    height: 15rem;
+    background-color: var(--cardGrn);
+    border-radius: 7px;
+    margin: 20px;
+}
+
+.user_search, .ticker_search{
+    width:10rem;
+    height: 6rem;
+    background-color: var(--cardGrn);
+    border-radius: 7px;
+    margin: 20px;
+}
