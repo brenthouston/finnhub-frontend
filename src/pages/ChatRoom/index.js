@@ -11,20 +11,34 @@ export default function ChatRoom() {
   
   const [sentMessage, setSentMessage] = useState('')
   const [messageList, setMessageList] = useState([])
+  console.log(socket.id)
 
-
-  useEffect(() => {
-    socket.on('chat-message',data =>{
-      console.log(data)
-      const newMessage = [...messageList, data]
-      console.log('new message', newMessage)
-      setMessageList(newMessage)
-      console.log('message list',messageList)
+useEffect(() => {
+  socket.emit('joinRoom',window.location.pathname.split('/')[2], 'user')
+  
+  socket.on('chat-message',data =>{
+    console.log(data)
+    addMessage(data)
   })
   
-  }, [messageList]);
+  socket.on('joined-room',data =>{
+    console.log(data)
+  })
+  socket.on('update-message-history',data =>{
+    console.log(data)
+    // const newMessage = [...messageList, data]
+    setMessageList(data)
+  })
+},[]);
+
+function addMessage(newMessage ) {
+  const newMessageArray = [...messageList, newMessage]
+  setMessageList(newMessageArray)
+  
+}
 
 
+  
   function handleChange(e){
     if (e.target.name === 'msg'){
       setSentMessage(e.target.value)
@@ -33,7 +47,7 @@ export default function ChatRoom() {
 
   function handleSubmit(e){
     e.preventDefault()
-    socket.emit('send-chat-message','room1',sentMessage)
+    socket.emit('send-chat-message','room1',sentMessage,'user')
     setSentMessage('')
   }
 
@@ -41,7 +55,7 @@ export default function ChatRoom() {
     <main className="ChatRoom">
          <h1>This is a chat room!</h1>
          {messageList.map((msg, i ) =>{
-          return <Message key = {i} messageText = {msg}/> 
+          return <Message key = {i} sender = {msg.sender} message = {msg.message}/> 
          })}
          <form onSubmit = {handleSubmit}> 
          <input name="msg"  onChange={handleChange} value={sentMessage} placeholder='enter in a message'/>
