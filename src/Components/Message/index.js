@@ -6,7 +6,7 @@ export default function Message(props) {
 
   return (
     <div className="Message">
-        <p>{props.messageText}</p>
+        <p>{props.sender}: {props.message}</p>
     </div>
   )
 }
