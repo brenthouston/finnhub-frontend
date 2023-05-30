@@ -1,0 +1,57 @@
+/* h1
+Basic Sans Thin
+font-family: "basic-sans", sans-serif;
+font-weight: 100;
+font-style: normal; 
+*/
+
+/* nav
+Basic Sans SemiBold It
+font-family: "basic-sans", sans-serif;
+font-weight: 600;
+font-style: italic; */
+
+/* logo
+Basic Sans Regular
+color: var(--primary);
+font-family: "basic-sans", sans-serif;
+font-weight: 400;
+font-style: normal; */
+
+
+
+
+
+:root {
+   --bgGrn: #15261c;
+   --cardGrn:#253f30; 
+   --hdBlk:  #111d15;
+   --primary: #a19f7a;
+   --accentLight: #d8d1bc;
+   --accentDark: #706f36;
+   --accentPlum: #65293d;
+}
+
+body{
+    background-color: var(--bgGrn);
+}
+
+.nav{
+    height: 6rem;
+    width: 100%;
+    font-size: 1.25rem;
+    background-color: var(--hdBlk);
+    font-family: "basic-sans", sans-serif;
+    font-weight: 00;
+    font-style: italic;
+}
+
+.logo{
+    color: var(--primary);
+    font-family: "basic-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin:36px;
+}
+
+
