@@ -43,8 +43,9 @@ body{
     font-size: 1.25rem;
     background-color: var(--hdBlk);
     font-family: "basic-sans", sans-serif;
-    font-weight: 00;
+    font-weight: 100;
     font-style: italic;
+    margin-bottom: 30px;
 }
 
 .logo{
