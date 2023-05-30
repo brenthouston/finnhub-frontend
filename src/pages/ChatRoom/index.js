@@ -15,11 +15,13 @@ export default function ChatRoom() {
 
   useEffect(() => {
     socket.on('chat-message',data =>{
+      console.log(data)
       const newMessage = [...messageList, data]
       console.log('new message', newMessage)
       setMessageList(newMessage)
       console.log('message list',messageList)
   })
+  
   }, [messageList]);
 
 
@@ -31,7 +33,7 @@ export default function ChatRoom() {
 
   function handleSubmit(e){
     e.preventDefault()
-    socket.emit('send-chat-message',sentMessage)
+    socket.emit('send-chat-message','room1',sentMessage)
     setSentMessage('')
   }
 
