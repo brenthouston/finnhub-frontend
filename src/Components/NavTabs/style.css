@@ -23,14 +23,14 @@ font-style: normal; */
 
 
 :root {
-   --bgGrn: #14221a;
-   --cardGrn:#253f30; 
-   --hdBlk:  #101813;
-   --primary: #a3a17d;
-   --accentLight: #d8d1bc;
-   --accentDark: #7f7c3d;
-   --accentPlum: #65293d;
-}
+    --bgGrn: #15261c;
+    --cardGrn:#253f30; 
+    --hdBlk:  #0e1812;
+    --primary: #acaa82;
+    --accentLight: #d8d1bc;
+    --accentDark: #7f7c3d;
+    --accentPlum: #65293d;
+ }
 
 body{
     background-color: var(--bgGrn)
