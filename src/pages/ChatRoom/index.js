@@ -2,43 +2,38 @@ import React, {useState,useEffect} from 'react'
 import "./style.css"
 import {io} from 'socket.io-client'
 import Message from '../../Components/Message'
-const URL = 'http://localhost:3001'
-const socket = io(URL)
+// const URL = 'http://localhost:3001'
+// const socket = io(URL)
 
 
 
-export default function ChatRoom() {
-  
+export default function ChatRoom(props) {
+  const socket = props.useSocket
   const [sentMessage, setSentMessage] = useState('')
   const [messageList, setMessageList] = useState([])
-  console.log(socket.id)
 
 useEffect(() => {
   socket.emit('joinRoom',window.location.pathname.split('/')[2], 'user')
   
-  socket.on('chat-message',data =>{
-    console.log(data)
-    addMessage(data)
+  socket.on('chat-message',data => {
+    setMessageList((state) => [...state,data] )
   })
-  
   socket.on('joined-room',data =>{
-    console.log(data)
   })
   socket.on('update-message-history',data =>{
-    console.log(data)
-    // const newMessage = [...messageList, data]
     setMessageList(data)
   })
+  
+  return () => socket.off("chat-message",addMessage)
 },[]);
 
-function addMessage(newMessage ) {
+
+function addMessage(newMessage) {
+  console.log(messageList)
   const newMessageArray = [...messageList, newMessage]
   setMessageList(newMessageArray)
-  
 }
 
-
-  
   function handleChange(e){
     if (e.target.name === 'msg'){
       setSentMessage(e.target.value)
@@ -47,7 +42,8 @@ function addMessage(newMessage ) {
 
   function handleSubmit(e){
     e.preventDefault()
-    socket.emit('send-chat-message','room1',sentMessage,'user')
+    console.log(messageList)
+    socket.emit('send-chat-message',window.location.pathname.split('/')[2],sentMessage,'user')
     setSentMessage('')
   }
 

@@ -7,18 +7,48 @@ import {io} from 'socket.io-client'
 
 
 
-export default function ChatHub() {
+export default function ChatHub(props) {
+  const socket = props.useSocket
+  const [roomList, setRoomList] = useState(['room1', 'room2','room3'])
+  const [roomName, setRoomName] = useState('')
 
-// function joinRoom(e){
-//   socket.emit('joinRoom','room1', 'user')
-// }
+  useEffect(() => {
+  socket.on('update-room-list', data =>{
+    console.log('came from the server socket',data)
+    setRoomList((state) => [...state,data] )
+  })
+
+  socket.on('populate-rooms',data=>{
+    setRoomList(data)
+
+  })
+
+  },[]);
+
+
+  function handleChange(e){
+    if (e.target.name === 'createRoom'){
+      setRoomName(e.target.value)
+    }
+  }
+  function handleSubmit(e){
+    e.preventDefault()
+    // const addNewRoom = [...roomList, roomName]
+    // setRoomList(addNewRoom)
+    socket.emit('create-new-room',roomName)
+    setRoomName('')
+  }
 
   return (
     <main className="ChatHub">
          <h1>This is the chathub </h1>
-         <Link name = 'room1' to="/ChatRoom/room1">Join Room1</Link>
-         <Link name = 'room2' to="/ChatRoom/room2">Join Room2</Link>
-         <Link name = 'room3' to="/ChatRoom/room3">Join Room3</Link>
+         <form onSubmit={handleSubmit}> 
+         <input name="createRoom"  onChange = {handleChange} value={roomName} placeholder='enter in a room'/>
+         <button>create room</button> 
+         </form>
+         {roomList.map((room, i ) =>{
+          return  <Link key = {i} name = {room} to={'/ChatRoom/'+room}>{'join ' + room}</Link>
+         })}
     </main>
   )
 }
