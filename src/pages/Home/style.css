@@ -22,7 +22,7 @@ font-style: normal; */
 
 
 
-/* :root {
+:root {
     --bgGrn: #15261c;
     --cardGrn:#253f30; 
     --hdBlk:  #0e1812;
@@ -30,7 +30,7 @@ font-style: normal; */
     --accentLight: #d8d1bc;
     --accentDark: #7f7c3d;
     --accentPlum: #65293d;
- } */
+ }
 
 
 h1{
@@ -38,7 +38,7 @@ h1{
     font-weight: 100;
     font-style: normal; 
     color: var(--primary);
-    font-size:3rem;
+    font-size:4.5rem;
     font-weight: lighter;
     margin-left: 10rem
 }
@@ -49,14 +49,16 @@ h3{
     font-style: normal;
     margin-left:10.25rem;
     margin-top:-10px;
+    font-size: 2.5rem;
+    
     
 }
 .w_card{
-    width:50rem;
+    width:45rem;
     height: 15rem;
     background-color: var(--cardGrn);
     border-radius: 7px;
-    margin: 20px;
+    margin: 20px 0px 0 40px;
 }
 
 .user_search, .ticker_search{
@@ -64,8 +66,8 @@ h3{
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
-    width: 14rem;
-    height: 9rem;
+    width: 18rem;
+    height: 12rem;
     background-color: var(--cardGrn);
     border-radius: 7px;
     margin: 20px;
@@ -77,12 +79,12 @@ h3{
 
    p{
     letter-spacing: .02em;
-    font-size: 18px;
+    font-size: 16px;
     color: var(--primary);
     font-family: "basic-sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-    padding: 10px 20px 0 20px;
+    padding: 25px 20px 0 20px;
    }
 
  .bulletP{
@@ -97,21 +99,36 @@ h3{
     align-items: flex-start;
     justify-content: center;
  }
+
+
  input{
     background-color: var(--accentLight);
-    width: 50%;
+    width: 60%;
     border-style: none;
     border-radius: 10px;
     height: 1.25rem;
     
  }
 
+ div.input-group.input-group-lg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+
+ 
 
  button{
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 10px;
-    height: 1.25rem;
+    width: 40%;
+    font-family: "basic-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-weight:bolder;
+   
     
  }

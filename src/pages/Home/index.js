@@ -5,10 +5,10 @@ export default function Home() {
   return (
     <div className="container">
       <div className="row">
-        <section className="col-8">
+        <section className="col m-5">
           <h1 style={{fontWeight:"lighter" }}>Dashboard</h1>
           <h3>What is FinHub?</h3>
-          <div className="w_card">
+          <div className="container w_card">
             <p>
               <strong>Welcome to FinHub</strong>, where finance meets community.
               Whether you're a seasoned trader or just starting your journey,
@@ -25,17 +25,21 @@ export default function Home() {
         </section>
       </div>
       <div className="row">
-        <aside className="col-4">
+        <aside className="col m-5">
           <div className="user_search">
-            <p style={{color: "#7f7c3d", fontSize: "18px"}}>Search for User</p>
-            <input type="text" className=""></input>
-            <button type="button" className="btn btn-sm" style={{background: "#65293d", color: "#d8d1bc", display:"flex", fontWeight:"lighter"}}>Search</button>
+            <p style={{color: "#7f7c3d", fontSize: "22px"}}>Search for User</p>
+            <div className="input-group input-group-lg">
+            <input type="text" placeholder="Username" className="inputGroup-sizing-lg"></input>
+            </div>
+            <button type="button" className="btn" style={{background: "#65293d", color: "#d8d1bc", display:"flex", padding:"0"}}>Search</button>
             </div>
 
           <div className="ticker_search">
-            <p style={{color: "#7f7c3d", fontSize: "18px"}}>Search for Ticker</p>
-            <input className=""></input>
-            <button type="button" className="btn btn-sm" style={{background: "#65293d", color: "#d8d1bc", display:"flex", fontWeight: "lighter"}}>Search</button>
+            <p style={{color: "#7f7c3d", fontSize: "22px"}}>Search for Ticker</p>
+            <div className="input-group input-group-lg">
+            <input type="text" placeholder="Stock Symbol" className="inputGroup-sizing-lg"></input>
+            </div>
+            <button type="button" className="btn" style={{background: "#65293d", color: "#d8d1bc", display:"flex", padding:"0"}}>Search</button>
           </div>
         </aside>
       </div>
