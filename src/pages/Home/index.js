@@ -6,8 +6,8 @@ export default function Home() {
     <div className="container">
       <div className="row">
         <section className="col-8">
-          <h1 className="">Dashboard</h1>
-          <h3 className="mt-1">What is FinHub?</h3>
+          <h1 style={{fontWeight:"lighter" }}>Dashboard</h1>
+          <h3>What is FinHub?</h3>
           <div className="w_card">
             <p>
               <strong>Welcome to FinHub</strong>, where finance meets community.
@@ -29,13 +29,13 @@ export default function Home() {
           <div className="user_search">
             <p style={{color: "#7f7c3d", fontSize: "18px"}}>Search for User</p>
             <input type="text" className=""></input>
-            <button type="button" className="btn btn-sm" style={{background: "#65293d"}}>Submit</button>
+            <button type="button" className="btn btn-sm" style={{background: "#65293d", color: "#d8d1bc", display:"flex", fontWeight:"lighter"}}>Search</button>
             </div>
 
           <div className="ticker_search">
             <p style={{color: "#7f7c3d", fontSize: "18px"}}>Search for Ticker</p>
             <input className=""></input>
-            <button type="button" className="btn btn-sm" style={{background: "#65293d"}}>Submit</button>
+            <button type="button" className="btn btn-sm" style={{background: "#65293d", color: "#d8d1bc", display:"flex", fontWeight: "lighter"}}>Search</button>
           </div>
         </aside>
       </div>

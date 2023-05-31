@@ -23,29 +23,29 @@ font-style: normal; */
 
 
 :root {
-   --bgGrn: #15261c;
+   --bgGrn: #14221a;
    --cardGrn:#253f30; 
-   --hdBlk:  #0e1812;
-   --primary: #acaa82;
+   --hdBlk:  #101813;
+   --primary: #a3a17d;
    --accentLight: #d8d1bc;
    --accentDark: #7f7c3d;
    --accentPlum: #65293d;
 }
 
 body{
-    background-color: var(--bgGrn);
+    background-color: var(--bgGrn)
   
 }
 
 .nav{
-    height: 6rem;
     width: 100%;
     font-size: 1.25rem;
     background-color: var(--hdBlk);
     font-family: "basic-sans", sans-serif;
     font-weight: 100;
     font-style: italic;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+   
 }
 
 .logo{
@@ -56,4 +56,8 @@ body{
     margin:36px;
 }
 
-
+ul{
+    list-style: none;
+    margin-top: 15px;
+    margin-right: 76px;
+}
