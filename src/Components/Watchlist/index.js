@@ -15,12 +15,23 @@ export default function Watchlist(props) {
     }
 
     function dltBtn(e){
-        const user2dlt = props.userID
-        console.log('user ID' ,props.userID)
-        const stock2dlt = e.target.id
-        console.log('stock ID',e.target.id)
-        deleteStock(user2dlt,stock2dlt)
+        // const user2dlt = props.userID
+        // console.log('user ID' ,props.userID)
+        // const stock2dlt = e.target.id
+        // console.log('stock ID',e.target.id)
+        // for (let i = 0; i < props.currentList.length; i++) {
+        //     const stock = props.currentList[i];
+        //     const id = stock._id
+        //     if(id === stock2dlt){
+        //         const newArray = [...props.currentList.splice(i,1)]
+        //         props.setStocks(newArray)
+        //     }
+            
+        // }
+        // deleteStock(user2dlt,stock2dlt)
     }
+
+    // console.log('these are the current stocks' , props.currentList)
 
   return (
     <div className="row">
