@@ -83,7 +83,7 @@ button{
     font-style: normal;
 }
 
-.watchlist{
+/* .watchlist{
     height: 440px;
     width: 100%;
     background-color: var(--cardGrn);
@@ -110,4 +110,4 @@ button{
     margin: 15px;
     border-radius: 7px; 
     padding:5px;
-}
+} */

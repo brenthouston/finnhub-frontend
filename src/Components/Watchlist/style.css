@@ -1,0 +1,28 @@
+.watchlist{
+    height: 440px;
+    width: 100%;
+    background-color: var(--cardGrn);
+    border-radius: 7px;
+    
+}
+
+.price,
+.percent_change{
+    font-family: "basic-sans", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    height: 2rem;
+    background-color: var(--accentLight);
+    margin: 15px;
+    border-radius: 7px;
+    padding:5px;
+}
+
+.ticker{
+    font-size:18px;
+    height: 2rem;
+    background-color: var(--primary);
+    margin: 15px;
+    border-radius: 7px; 
+    padding:5px;
+}
