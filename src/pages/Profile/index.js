@@ -1,7 +1,38 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import "./style.css";
+import axios from 'axios'
+const URL = 'http://localhost:3001'
 
 export default function Profile() {
+
+const [username, setUserName] = useState('')
+const [email, setEmail] = useState('')
+const [desc, setDesc] = useState('')
+const [investType, setInvestType] = useState('')
+
+
+async function findUser(username){
+    try {
+      const response = await axios.get(`${URL}/api/users/username/${username}`);
+      const userData = response.data
+      console.log(userData)
+      setUserName(userData.username)
+      setEmail(userData.email)
+      setDesc(userData.description)
+      setInvestType(userData.investor_type)
+    } catch (error) {
+      console.error(error);
+    }
+  
+
+}
+useEffect(()=>{
+// console.log(window.location.pathname.split('/')[2])
+const username = window.location.pathname.split('/')[2]
+findUser(username)
+},[])
+
+
   return (
     <div className="container">
       <div className="row">
@@ -46,16 +77,17 @@ export default function Profile() {
           <div className="col bio w_card">
             <h1 style={{ padding: "10px" }}>Bio</h1>
             <ul>
-              <li className="username">Username: @conservativeinvestor</li>
-              <li className="email">Email: brent.houston@gmail.com</li>
+              <li className="username">Username: {username}</li>
+              <li className="email">Email: {email}</li>
               <li className="invest-type">
-                Type of investor: Conservative, Swing Trader
+                Type of investor: {investType}
               </li>
             </ul>
             <p>
-              “Hi Everyone, I’m a conservative investor tand have reapeatedly
+              {/* “Hi Everyone, I’m a conservative investor tand have reapeatedly
               out preformed the market. Would love to share ideas and
-              communicate.:
+              communicate.: */}
+              {desc}
             </p>
           </div>
         </div>
@@ -63,7 +95,7 @@ export default function Profile() {
 
       <div className="container.fluid">
         <div className="watchlist my-4">
-          <h1 style={{fontSize:"2.5rem", textAlign:"center", marginLeft:0, margin:"25px"}}>My Watchlists</h1>
+          <h1 style={{fontSize:"2.5rem", textAlign:"center", marginLeft:0, margin:"25px"}}>{username}'s Watchlists</h1>
         <div className="row">
           <div className="d-flex justify-content-between">
           <div className="ticker"><h4>Apple Inc.AAPL</h4></div>

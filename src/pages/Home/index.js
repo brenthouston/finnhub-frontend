@@ -36,10 +36,12 @@ export default function Home() {
       console.error(error);
     }
   }
+
+  
    function handleUserSearch(e){
     e.preventDefault()
     console.log('pressed search button')
-    getUser()
+    window.location.href = `/profile/${userSearch}`
     setUserSearch('')
   }
 
