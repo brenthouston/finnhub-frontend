@@ -22,8 +22,8 @@ function App() {
     <Router>
       <NavTabs/>
       <Routes>
-        <Route path="/chatRoom/:roomID" element={<ChatRoom useSocket = {socket}/>} />
-        <Route path="/chatRoom/" element={<ChatHub useSocket = {socket} />} />
+        <Route path="/chatroom/:roomID" element={<ChatRoom useSocket = {socket}/>} />
+        <Route path="/chathub/" element={<ChatHub useSocket = {socket} />} />
         <Route path="/" element={<Home/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/login" element={<Login/>} />
