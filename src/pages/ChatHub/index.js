@@ -47,7 +47,7 @@ export default function ChatHub(props) {
          <button>create room</button> 
          </form>
          {roomList.map((room, i ) =>{
-          return  <Link key = {i} name = {room} to={'/ChatRoom/'+room}>{'join ' + room}</Link>
+          return  <Link key = {i} name = {room} to={'/chatRoom/'+room}>{'join ' + room}</Link>
          })}
     </main>
   )

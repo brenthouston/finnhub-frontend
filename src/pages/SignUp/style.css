@@ -19,6 +19,12 @@ font-weight: 400;
 font-style: normal; */
 
 
+/* SignUp
+font-family: "basic-sans", sans-serif;
+font-weight: 900;
+font-style: normal; */
+
+
 
 
 
@@ -32,33 +38,3 @@ font-style: normal; */
     --accentPlum: #65293d;
  }
 
-
-body{
-    background-color: var(--bgGrn)
-}
-
-.nav{
-    width: 100vw;
-    font-size: 1.25rem;
-    background-color: var(--hdBlk);
-    font-family: "basic-sans", sans-serif;
-    font-weight: 100;
-    font-style: italic;
-    margin-bottom: 25px;
-    margin-left: -25px
-   
-}
-
-.logo{
-    color: var(--primary);
-    font-family: "basic-sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    margin:36px;
-}
-
-ul{
-    list-style: none;
-    margin-top: 15px;
-    margin-right: 76px;
-}

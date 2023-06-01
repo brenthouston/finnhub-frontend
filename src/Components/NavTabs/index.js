@@ -6,7 +6,7 @@ function NavTabs(currentPage){
     let active = '';
 
     return(
-        <div className="nav ">
+        <div className="nav container-fluid ">
             <h4 
                 className="logo">FinHub
             </h4>

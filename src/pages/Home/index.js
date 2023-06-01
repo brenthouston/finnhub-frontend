@@ -29,7 +29,7 @@ export default function Home() {
           <div className="user_search">
             <p style={{color: "#7f7c3d", fontSize: "22px"}}>Search for User</p>
             <div className="input-group input-group-lg">
-            <input type="text" placeholder="Username" className="inputGroup-sizing-lg"></input>
+            <input type="text" placeholder="Username" className="inputgroup-sizing-lg"></input>
             </div>
             <button type="button" className="btn" style={{background: "#65293d", color: "#d8d1bc", display:"flex", padding:"0"}}>Search</button>
             </div>
