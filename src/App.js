@@ -13,10 +13,10 @@ function App() {
     <Router>
       <NavTabs/>
       <Routes>
-        <Route path="/ChatRoom/:roomID" element={<ChatRoom useSocket = {socket}/>} />
-        <Route path="/ChatRoom/" element={<ChatHub useSocket = {socket} />} />
         <Route path="/" element={<Home/>} />
-        <Route path="/profile" element={<Profile/>} />
+        <Route path="/chathub/" element={<ChatHub useSocket = {socket} />} />
+        <Route path="/chatroom/:roomID" element={<ChatRoom useSocket = {socket}/>} />
+        <Route path="/profile/:username" element={<Profile/>} />
       </Routes>
     </Router>
   );
