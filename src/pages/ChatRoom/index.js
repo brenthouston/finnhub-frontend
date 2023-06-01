@@ -14,6 +14,7 @@ export default function ChatRoom(props) {
 
 useEffect(() => {
   socket.emit('joinRoom',window.location.pathname.split('/')[2], 'user')
+  console.log(window.location.pathname.split('/')[2])
   
   socket.on('chat-message',data => {
     setMessageList((state) => [...state,data] )

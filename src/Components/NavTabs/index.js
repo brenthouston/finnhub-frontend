@@ -15,7 +15,7 @@ function NavTabs(currentPage){
                 <Link className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/">Home</Link>
             </li>
             <li className="nav-item px-4 mt-4">
-                <Link className={currentPage === 'Profile' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/Profile">Profile</Link>
+                <Link className={currentPage === 'Profile' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/Profile/noUser">Profile</Link>
             </li>
             <li className="nav-item px-4 mt-4">
                 <Link className={currentPage === 'ChatHub' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/ChatHub">ChatHub</Link>

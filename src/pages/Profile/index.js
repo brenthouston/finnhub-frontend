@@ -1,7 +1,47 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import "./style.css";
+import axios from 'axios'
+import Watchlist from "../../Components/Watchlist";
+const URL = 'http://localhost:3001'
+
+const ianAPIKey = '9FGEWT5F3EERGO89'
 
 export default function Profile() {
+
+const [username, setUserName] = useState('')
+const [userID,setUserID] = useState('')
+const [email, setEmail] = useState('')
+const [desc, setDesc] = useState('')
+const [investType, setInvestType] = useState('')
+const [stocks, setStocks] = useState([])
+
+
+async function findUser(username){
+    try {
+      const response = await axios.get(`${URL}/api/users/username/${username}`);
+      const userData = response.data
+      console.log(userData)
+      setUserName(userData.username)
+      setEmail(userData.email)
+      setDesc(userData.description)
+      setInvestType(userData.investor_type)
+      setStocks(userData.stocks)
+      setUserID(userData._id)
+    } catch (error) {
+      console.error(error);
+    }
+  
+
+}
+useEffect(()=>{
+// console.log(window.location.pathname.split('/')[2])
+const username = window.location.pathname.split('/')[2]
+findUser(username)
+console.log('userID', userID)
+console.log('stockID', stocks)
+},[])
+
+
   return (
     <div className="container">
       <div className="row">
@@ -46,16 +86,14 @@ export default function Profile() {
           <div className="col bio w_card">
             <h1 style={{ padding: "10px" }}>Bio</h1>
             <ul>
-              <li className="username">Username: @conservativeinvestor</li>
-              <li className="email">Email: brent.houston@gmail.com</li>
+              <li className="username">Username: {username}</li>
+              <li className="email">Email: {email}</li>
               <li className="invest-type">
-                Type of investor: Conservative, Swing Trader
+                Type of investor: {investType}
               </li>
             </ul>
             <p>
-              “Hi Everyone, I’m a conservative investor tand have reapeatedly
-              out preformed the market. Would love to share ideas and
-              communicate.:
+              {desc}
             </p>
           </div>
         </div>
@@ -63,52 +101,10 @@ export default function Profile() {
 
       <div className="container.fluid">
         <div className="watchlist my-4">
-          <h1 style={{fontSize:"2.5rem", textAlign:"center", marginLeft:0, margin:"25px"}}>My Watchlists</h1>
-        <div className="row">
-          <div className="d-flex justify-content-between">
-          <div className="ticker"><h4>Apple Inc.AAPL</h4></div>
-          <div className="price"><h4 className="text-success">$60.35</h4></div>
-          <div className="percent_change text-danger"><h4>0.46%</h4></div>
-              <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Edit</button>
-              <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Delete</button>
-        </div>
-        </div>
-        <div className="row">
-          <div className="d-flex justify-content-between">
-          <div className="ticker"><h4>Apple Inc.AAPL</h4></div>
-          <div className="price"><h4 className="text-success">$60.35</h4></div>
-          <div className="percent_change text-danger"><h4>0.46%</h4></div>
-              <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Edit</button>
-              <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Delete</button>
-        </div>
-        </div>
-        <div className="row">
-          <div className="d-flex justify-content-between">
-          <div className="ticker"><h4>Apple Inc.AAPL</h4></div>
-          <div className="price"><h4 className="text-success">$60.35</h4></div>
-          <div className="percent_change text-danger"><h4>0.46%</h4></div>
-              <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Edit</button>
-              <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Delete</button>
-        </div>
-        </div>
-        <div className="row">
-          <div className="d-flex justify-content-between">
-          <div className="ticker"><h4>Apple Inc.AAPL</h4></div>
-          <div className="price"><h4 className="text-success">$60.35</h4></div>
-          <div className="percent_change text-danger"><h4>0.46%</h4></div>
-              <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Edit</button>
-              <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Delete</button>
-        </div>
-        </div>
-        <div className="row">
-          <div className="d-flex justify-content-between">
-          <div className="ticker"><h4>Apple Inc.AAPL</h4></div>
-          <div className="price"><h4 className="text-success">$60.35</h4></div>
-          <div className="percent_change text-danger"><h4>0.46%</h4></div>
-              <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Edit</button>
-              <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Delete</button>
-        </div>
-        </div>
+          <h1 style={{fontSize:"2.5rem", textAlign:"center", marginLeft:0, margin:"25px"}}>{username}'s Watchlists</h1>
+          {stocks.map((stock, i ) =>{
+          return <Watchlist key = {i} tickerName = {stock.ticker} stockID = {stock._id} userID = {userID}/> 
+         })}
         </div>
       </div>
     </div>
