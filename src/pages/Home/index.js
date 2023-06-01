@@ -44,7 +44,7 @@ export default function Home() {
   }
 
   return (
-    <div className="container">
+    <div className="container home">
       <div className="row">
         <section className="col m-5">
           <h1 style={{fontWeight:"lighter" }}>Dashboard</h1>

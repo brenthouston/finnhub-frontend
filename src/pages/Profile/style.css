@@ -1,0 +1,113 @@
+/* h1
+Basic Sans Thin
+font-family: "basic-sans", sans-serif;
+font-weight: 100;
+font-style: normal; 
+*/
+
+/* nav
+Basic Sans SemiBold It
+font-family: "basic-sans", sans-serif;
+font-weight: 600;
+font-style: italic; */
+
+/* logo
+Basic Sans Regular
+color: var(--primary);
+font-family: "basic-sans", sans-serif;
+font-weight: 400;
+font-style: normal; */
+
+
+
+
+
+:root {
+    --bgGrn: #15261c;
+    --cardGrn:#253f30; 
+    --hdBlk:  #0e1812;
+    --primary: #acaa82;
+    --accentLight: #d8d1bc;
+    --accentDark: #7f7c3d;
+    --accentPlum: #65293d;
+}
+   
+
+input{
+    background-color: var(--accentLight) !important;
+    width: 15rem !important;
+    margin-bottom: 1rem;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    
+}   
+button{
+    margin: 0;
+}     
+
+.picBio{
+    display: flex;
+    
+}
+
+.pic{
+    
+    border:2px solid var(--cardGrn);
+    height: 200px;
+    max-width: 200px;
+}
+
+.bio h1{
+   font-size: 1.5rem;
+    color:var(--accentLight);
+}
+
+.bio{
+    height: 300px;
+    width: 100%;
+    background-color: var(--cardGrn);
+}
+
+.username,
+.email,
+.invest-type{
+    letter-spacing: .02em;
+    font-size: 16px;
+    color: var(--primary);
+    font-family: "basic-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.watchlist{
+    height: 440px;
+    width: 100%;
+    background-color: var(--cardGrn);
+    border-radius: 7px;
+    
+}
+
+.price,
+.percent_change{
+    font-family: "basic-sans", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    height: 2rem;
+    background-color: var(--accentLight);
+    margin: 15px;
+    border-radius: 7px;
+    padding:5px;
+}
+
+.ticker{
+    font-size:18px;
+    height: 2rem;
+    background-color: var(--primary);
+    margin: 15px;
+    border-radius: 7px; 
+    padding:5px;
+}
