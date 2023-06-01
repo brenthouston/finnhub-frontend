@@ -101,19 +101,14 @@ h3{
  }
 
 
- input{
-    background-color: var(--accentLight);
+ div.input-group.input-group-lg{
+    display: flex;
+    align-items: center;
+    justify-content: center;background-color: var(--accentLight);
     width: 60%;
     border-style: none;
     border-radius: 3px;
     height: 1.5rem;
-    
- }
-
- div.input-group.input-group-lg{
-    display: flex;
-    align-items: center;
-    justify-content: center;
  }
 
 
