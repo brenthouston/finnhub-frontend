@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import "./style.css";
 import axios from 'axios'
 import Watchlist from "../../Components/Watchlist";
+import API from "../../utils/API"
 const URL = 'http://localhost:3001'
 
 const ianAPIKey = '9FGEWT5F3EERGO89'
@@ -18,7 +19,7 @@ const [stocks, setStocks] = useState([])
 
 async function findUser(username){
     try {
-      const response = await axios.get(`${URL}/api/users/username/${username}`);
+      const response = await API.getUserByName(username)
       const userData = response.data
       console.log(userData)
       setUserName(userData.username)
@@ -30,15 +31,13 @@ async function findUser(username){
     } catch (error) {
       console.error(error);
     }
-  
-
 }
+
 useEffect(()=>{
 // console.log(window.location.pathname.split('/')[2])
 const username = window.location.pathname.split('/')[2]
+console.log('username' , username)
 findUser(username)
-console.log('userID', userID)
-console.log('stockID', stocks)
 },[])
 
 
@@ -101,9 +100,9 @@ console.log('stockID', stocks)
 
       <div className="container.fluid">
         <div className="watchlist my-4">
-          <h1 style={{fontSize:"2.5rem", textAlign:"center", marginLeft:0, margin:"25px"}}>{username}'s Watchlists</h1>
+          <h1 style={{fontSize:"2.5rem", textAlign:"center", marginLeft:0, margin:"25px"}}>Watchlists</h1>
           {stocks.map((stock, i ) =>{
-          return <Watchlist key = {i} tickerName = {stock.ticker} stockID = {stock._id} userID = {userID}/> 
+          return <Watchlist key = {i} tickerName = {stock.ticker} stockID = {stock._id} userID = {userID} setStocks = {setStocks} currentList = {stocks}/> 
          })}
         </div>
       </div>

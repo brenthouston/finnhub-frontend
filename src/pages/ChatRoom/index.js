@@ -44,7 +44,7 @@ function addMessage(newMessage) {
   function handleSubmit(e){
     e.preventDefault()
     console.log(messageList)
-    socket.emit('send-chat-message',window.location.pathname.split('/')[2],sentMessage,'user')
+    socket.emit('send-chat-message',window.location.pathname.split('/')[2],sentMessage,props.username)
     setSentMessage('')
   }
 

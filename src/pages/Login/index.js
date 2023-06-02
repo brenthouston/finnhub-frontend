@@ -1,8 +1,45 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import "./style.css";
+import axios from 'axios'
+import API from '../../utils/API'
 
 
-export default function Login() {
+
+export default function Login(props) {
+
+
+  const [username,setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [email, setemail] = useState('')
+
+  function handleChange(e){
+    if(e.target.name === 'username'){
+      setUsername(e.target.value)
+    }else if (e.target.name === 'password'){
+      setPassword(e.target.value)
+    }else if (e.target.name === 'email'){
+      setPassword(e.target.value)
+    }
+  }
+
+  async function handleLogin(e){
+    console.log('pressed the login button')
+    e.preventDefault()
+    try{
+      const response = await API.login(username,password)
+      console.log(response)
+      props.setToken(response.data.token)
+      props.setUsername(response.data.user.username)
+      props.setUserId(response.data.user._id)
+      localStorage.setItem("token", response.data.token);
+
+
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+
   return (
     <div className="col">
       <div className="container">
@@ -23,6 +60,9 @@ export default function Login() {
                 <div className="col-md-6 mb-4">
                   <div className="form-outline">
                     <input
+                      name = 'username'
+                      value = {username}
+                      onChange={handleChange}
                       type="text"
                       id="form3Example1"
                       className="form-control"
@@ -32,30 +72,14 @@ export default function Login() {
                       for="form3Example1"
                       style={{ color: "var(--primary)" }}
                     >
-                      First name
-                    </label>
-                  </div>
-                </div>
-                <div className="col-md-6 mb-4">
-                  <div className="form-outline">
-                    <input
-                      type="text"
-                      id="form3Example2"
-                      className="form-control"
-                    />
-                    <label
-                      className="form-label"
-                      for="form3Example2"
-                      style={{ color: "var(--primary)" }}
-                    >
-                      Last name
+                      Username
                     </label>
                   </div>
                 </div>
               </div>
 
               {/* <!-- Email input --> */}
-              <div className="form-outline mb-4">
+              {/* <div className="form-outline mb-4">
                 <input
                   type="email"
                   id="form3Example3"
@@ -68,11 +92,14 @@ export default function Login() {
                 >
                   Email address
                 </label>
-              </div>
+              </div> */}
 
               {/* <!-- Password input --> */}
               <div className="form-outline mb-4">
                 <input
+                  name = 'password'
+                  value = {password}
+                  onChange={handleChange}
                   type="password"
                   id="form3Example4"
                   className="form-control"
@@ -89,6 +116,7 @@ export default function Login() {
               {/* Submit */}
               <div className="d-flex justify-content-center">
                 <button
+                  onClick={handleLogin}
                   style={{
                     backgroundColor: "var(--accentPlum)",
                     color: "var(--primary)",
@@ -96,7 +124,7 @@ export default function Login() {
                   type="submit"
                   className="btn mb-4"
                 >
-                  Sign up
+                  Login
                 </button>
               </div>
             </form>
