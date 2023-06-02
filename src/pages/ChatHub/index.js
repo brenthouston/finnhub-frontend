@@ -9,7 +9,6 @@ export default function ChatHub(props) {
   const socket = props.useSocket
   const [roomList, setRoomList] = useState(['room1', 'room2','room3'])
   const [roomName, setRoomName] = useState('')
-  // const [render, setRender] = useState('render')
   
   useEffect(() => {
     socket.on('update-room-list', data =>{
