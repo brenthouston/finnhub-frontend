@@ -8,6 +8,7 @@ import Message from '../../Components/Message'
 
 
 export default function ChatRoom(props) {
+  console.log('username prop', props.username)
   const socket = props.useSocket
   const [sentMessage, setSentMessage] = useState('')
   const [messageList, setMessageList] = useState([])

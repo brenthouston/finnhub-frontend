@@ -21,7 +21,6 @@ async function findUser(username){
     try {
       const response = await API.getUserByName(username)
       const userData = response.data
-      console.log(userData)
       setUserName(userData.username)
       setEmail(userData.email)
       setDesc(userData.description)
@@ -36,7 +35,6 @@ async function findUser(username){
 useEffect(()=>{
 // console.log(window.location.pathname.split('/')[2])
 const username = window.location.pathname.split('/')[2]
-console.log('username' , username)
 findUser(username)
 },[])
 
@@ -48,7 +46,7 @@ findUser(username)
           <h1 style={{ fontWeight: "lighter" }}>Profile</h1>
           <h3>Customize Watchlists & Follow Traders</h3>
         </div>
-
+        
         <form className="col-3">
           <div className="form-group">
             <p style={{ color: "#7f7c3d", fontSize: "22px" }}>
