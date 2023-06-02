@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import background from "./images/finhubBG.png";
 import SignUp from "./pages/SignUp";
 import TickerSearch from "./pages/TickerSearch";
+import Signals from "./pages/Signals";
 
 import {useState,useEffect} from 'react'
 import API from './utils/API.js'
@@ -53,12 +54,12 @@ function App() {
     <Router>
       <NavTabs/>
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/home" element={<Home/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/login" element={<Login setToken = {setToken} setUserId = {setUserId} setUsername = {setUsername}/>}  />
-        <Route path="/signup" element={<SignUp/>} />
+        <Route path="/" element={<SignUp/>} />
+        <Route path="/signals" element={<Signals/>} />
         <Route path="/tickersearch" element={<TickerSearch/>} />
-        <Route path="/" element={<Home/>} />
         <Route path="/chathub/" element={<ChatHub username = {username} useSocket = {socket} />} />
         <Route path="/chatroom/:roomID" element={<ChatRoom useSocket = {socket} username={username}/>} />
         <Route path="/profile/:username" element={<Profile/>} />
