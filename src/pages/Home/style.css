@@ -84,13 +84,16 @@ h3{
     font-family: "basic-sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-    padding: 25px 20px 0 20px;
+   
    }
 
  .bulletP{
     margin-left: 30%;
     color:var(--primary);
     list-style-type: disc;
+    font-family: "basic-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal
  }
 
  aside{
@@ -127,3 +130,9 @@ h3{
    
     
  }
+ul{
+    color:var(--primary);
+    font-family: "basic-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal
+}
