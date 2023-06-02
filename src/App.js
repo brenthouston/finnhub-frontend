@@ -1,13 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ChatRoom from './pages/ChatRoom'
-import ChatHub from './pages/ChatHub'
-import NavTabs from './Components/NavTabs/index'
-import Home from './pages/Home'
-import Profile from './pages/Profile'
-import {io} from 'socket.io-client'
+import ChatRoom from './pages/ChatRoom';
+import ChatHub from './pages/ChatHub';
+import NavTabs from './Components/NavTabs/index';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import {io} from 'socket.io-client';
 import Login from "./pages/Login";
 import background from "./images/finhubBG.png";
 import SignUp from "./pages/SignUp";
+import TickerSearch from "./pages/TickerSearch";
+
 import {useState,useEffect} from 'react'
 import API from './utils/API.js'
 
@@ -55,6 +57,7 @@ function App() {
         <Route path="/profile" element={<Profile/>} />
         <Route path="/login" element={<Login setToken = {setToken} setUsername = {setUsername} username = {username} isLoggedIn = {isLoggedIn}/>}  />
         <Route path="/" element={<SignUp setToken = {setToken} setUsername = {setUsername} username = {username} isLoggedIn = {isLoggedIn}/>} />
+        <Route path="/tickersearch" element={<TickerSearch/>} />
         <Route path="/chathub/" element={<ChatHub username = {username} useSocket = {socket} />} />
         <Route path="/chatroom/:roomID" element={<ChatRoom useSocket = {socket} username={username}/>} />
         <Route path="/profile/:username" element={<Profile/>} />

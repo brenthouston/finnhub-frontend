@@ -36,7 +36,7 @@ export default function Home() {
           <h1 style={{fontWeight:"lighter" }}>Dashboard</h1>
           <h3>What is FinHub?</h3>
           <div className="container w_card">
-            <p>
+            <p style={{ padding: '25px 20px 0 20px'}}>
               <strong>Welcome to FinHub</strong>, where finance meets community.
               Whether you're a seasoned trader or just starting your journey,
               our platform equips you with the tools, knowledge, and connections
