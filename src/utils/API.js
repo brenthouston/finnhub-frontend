@@ -57,6 +57,33 @@ const API = {
 
         }
     },
+    updateProfilePic:async (username,url)=>{
+        try{
+         const response = await axios.put(`${URL_PREFIX}/api/users/username/profilepic/${username}`,
+         {
+            profile_pic: url,
+            })
+        return response
+        }
+        catch(err){
+            throw new Error("falied login");
+
+        }
+    },
+    updateProfileBio:async (username,bio,itype,fav)=>{
+        try{
+         const response = await axios.put(`${URL_PREFIX}/api/users/bio/${username}`,{
+            investor_type:itype,
+            fav_stock:fav,
+            description:bio
+         })
+        return response
+        }
+        catch(err){
+            throw new Error("falied login");
+
+        }
+    },
   }
 
 
