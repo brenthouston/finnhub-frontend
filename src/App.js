@@ -57,10 +57,10 @@ function App() {
         <Route path="/profile" element={<Profile/>} />
         <Route path="/login" element={<Login setToken = {setToken} setUsername = {setUsername} username = {username} isLoggedIn = {isLoggedIn}/>}  />
         <Route path="/" element={<SignUp setToken = {setToken} setUsername = {setUsername} username = {username} isLoggedIn = {isLoggedIn}/>} />
-        <Route path="/tickersearch" element={<TickerSearch/>} />
+        <Route path="/tickersearch" element={<TickerSearch/>}/>
         <Route path="/chathub/" element={<ChatHub username = {username} useSocket = {socket} />} />
         <Route path="/chatroom/:roomID" element={<ChatRoom useSocket = {socket} username={username}/>} />
-        <Route path="/profile/:username" element={<Profile/>} />
+        <Route path="/profile/:username" element={<Profile username = {username}/>} />
       </Routes>
     </Router>
     </div>
