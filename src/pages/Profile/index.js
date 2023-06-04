@@ -3,11 +3,12 @@ import "./style.css";
 import axios from 'axios'
 import Watchlist from "../../Components/Watchlist";
 import API from "../../utils/API"
+import BioForm from "../../Components/BioForm";
 const URL = 'http://localhost:3001'
 
 const ianAPIKey = '9FGEWT5F3EERGO89'
 
-export default function Profile() {
+export default function Profile(props) {
 
 const [username, setUserName] = useState('')
 const [userID,setUserID] = useState('')
@@ -15,7 +16,38 @@ const [email, setEmail] = useState('')
 const [desc, setDesc] = useState('')
 const [investType, setInvestType] = useState('')
 const [stocks, setStocks] = useState([])
+const [profilePic,setProfilePic] = useState('')
+const [favStock,setFavStock] = useState('')
+let url 
 
+const [show, setShow] = useState(false);
+const handleClose = () => setShow(false);
+const handleShow = () => setShow(true);
+
+var myWidget = window.cloudinary.createUploadWidget(
+  {
+    cloudName: 'dykifpnqi',
+    // make sure we have a preset that allows unsigned uploads! Go to your cloudinary dashboard -> settings -> upload -> upload presets to create a new preset
+    uploadPreset: 't6tmwe9g',
+  },
+  (error, result) => {
+    if (!error && result && result.event === "success") {
+      console.log("Done! Here is the image info: ", result.info);
+      // do something with the image url
+      url = result.info.url;
+      uploadAPI(url)
+    }
+  }
+  );
+async function uploadAPI(url){
+  const response = await API.updateProfilePic(props.username,url)
+  console.log(response)
+
+}  
+function openCloudinary(e){
+  e.preventDefault()
+  myWidget.open()
+}
 
 async function findUser(username){
     try {
@@ -27,9 +59,15 @@ async function findUser(username){
       setInvestType(userData.investor_type)
       setStocks(userData.stocks)
       setUserID(userData._id)
+      setProfilePic(userData.profile_pic)
+      setFavStock(userData.fav_stock)
     } catch (error) {
       console.error(error);
     }
+}
+
+async function editBio(){
+
 }
 
 useEffect(()=>{
@@ -77,21 +115,23 @@ findUser(username)
         <div className="row d-flex align-items-center">
           <div className="col pic">
             <div>
-              <p>photo here</p>
+              {/* <p>photo here</p> */}
+              <img src = {profilePic} />
             </div>
+              {props.username === username && <button onClick={openCloudinary} type="button" className="btn"style={{background: "#65293d",color: "#d8d1bc",display: "flex",padding: "0",}}>Edit photo</button>}
           </div>
           <div className="col bio w_card">
             <h1 style={{ padding: "10px" }}>Bio</h1>
             <ul>
               <li className="username">Username: {username}</li>
               <li className="email">Email: {email}</li>
-              <li className="invest-type">
-                Type of investor: {investType}
-              </li>
+              <li className="invest-type">Type of investor: {investType}</li>
+              <li className="invest-type">Favorite Stock: {favStock}</li>
             </ul>
             <p>
               {desc}
             </p>
+            {props.username === username && <button onClick={handleShow} type="button" className="btn"style={{background: "#65293d",color: "#d8d1bc",display: "flex",padding: "0",}}>Edit Bio</button>}
           </div>
         </div>
       </div>
@@ -104,6 +144,7 @@ findUser(username)
          })}
         </div>
       </div>
+        <BioForm username = {props.username} setInvestType = {setInvestType} setFavStock = {setFavStock} setDesc = {setDesc} desc = {desc} fav = {favStock} itype = {investType} show = {show} setShow = {setShow} handleClose = {handleClose} handleShow = {handleShow}> </BioForm>
     </div>
   );
 }
