@@ -44,7 +44,7 @@ export default function BioForm(props) {
   return (
     <Modal show = {props.show} onHide={props.handleClose}>
     <Modal.Header closeButton>
-      <Modal.Title>Modal heading</Modal.Title>
+      <Modal.Title>Edit Your Profile</Modal.Title>
     </Modal.Header>
     <Modal.Body>
     <form>

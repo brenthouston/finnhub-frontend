@@ -23,6 +23,7 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(null)
   const [username, setUsername] = useState("")
+  const [userId, setUserId] = useState('')
   const [token, setToken] = useState("")
 
   useEffect(()=>{
@@ -31,6 +32,7 @@ function App() {
       API.verifyToken(storedToken).then(data=>{
         setToken(storedToken);
         setUsername(data.data.username);
+        setUserId(data.data._id)
         setIsLoggedIn(true)
       }).catch(err=>{
         console.log("that token couldnt be verified")
@@ -57,7 +59,7 @@ function App() {
         <Route path="/profile" element={<Profile/>} />
         <Route path="/login" element={<Login setToken = {setToken} setUsername = {setUsername} username = {username} isLoggedIn = {isLoggedIn}/>}  />
         <Route path="/" element={<SignUp setToken = {setToken} setUsername = {setUsername} username = {username} isLoggedIn = {isLoggedIn}/>} />
-        <Route path="/tickersearch" element={<TickerSearch/>}/>
+        <Route path="/tickersearch"  element={<TickerSearch username = {username} userId = {userId}/>}/>
         <Route path="/chathub/" element={<ChatHub username = {username} useSocket = {socket} />} />
         <Route path="/chatroom/:roomID" element={<ChatRoom useSocket = {socket} username={username}/>} />
         <Route path="/profile/:username" element={<Profile username = {username}/>} />
