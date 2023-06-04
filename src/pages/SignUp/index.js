@@ -1,6 +1,5 @@
-import React,{useState,useEffect} from "react";
+ import React,{useState,useEffect} from "react";
 import "./style.css";
-import background from "../../images/finhubBG.png";
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import API from '../../utils/API'
