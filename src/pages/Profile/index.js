@@ -118,12 +118,15 @@ findUser(username)
               {/* <p>photo here</p> */}
               <img src = {profilePic} />
             </div>
-              {props.username === username && <button onClick={openCloudinary} type="button" className="btn"style={{background: "#65293d",color: "#d8d1bc",display: "flex",padding: "0",}}>Edit photo</button>}
+            <div className="d-flex justify-content-center">
+              {props.username === username && <button onClick={openCloudinary} type="button" className="btn"style={{background: "#65293d",color: "#d8d1bc",padding: "0", width:"6rem", margin:"10px"}}>Edit photo</button>}
+          </div>
           </div>
           <div className="col bio w_card">
-            <h1 style={{ padding: "10px" }}>Bio</h1>
+            <h1 style={{ fontSize:"3rem" }}>Bio</h1>
+            <div className="">
             <ul>
-              <li className="username">Username: {username}</li>
+              <li className="username">Username: <h2>{username}</h2></li>
               <li className="email">Email: {email}</li>
               <li className="invest-type">Type of investor: {investType}</li>
               <li className="invest-type">Favorite Stock: {favStock}</li>
@@ -131,7 +134,8 @@ findUser(username)
             <p>
               {desc}
             </p>
-            {props.username === username && <button onClick={handleShow} type="button" className="btn"style={{background: "#65293d",color: "#d8d1bc",display: "flex",padding: "0",}}>Edit Bio</button>}
+            {props.username === username && <button onClick={handleShow} type="button" className="btn"style={{background: "#65293d",color: "#d8d1bc",padding: "0", width:"8rem", alignSelf:"center"}}>Edit Bio</button>}
+          </div>
           </div>
         </div>
       </div>
