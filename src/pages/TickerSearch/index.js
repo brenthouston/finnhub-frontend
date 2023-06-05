@@ -34,6 +34,7 @@ async function searchTicker (query){
       setVolume(response.data.data[0].volume);
     }else{
       alert('That was not a valid stock')
+      setSearch('')
     }
    
 
@@ -66,7 +67,7 @@ const handleInputChange = event =>{
         const stockId = response.data._id
         const addStock = await API.addStock(props.userId,stockId )
       }else{
-        console.log('IT WAS EMPTY')
+        alert('please search for a stock first')
       }
       
     }catch(err){
@@ -102,7 +103,7 @@ const handleInputChange = event =>{
                   value={search}
                   type="text"
                   className="form-control"
-                  placeholder="AAPL"
+                  placeholder="Enter Ticker"
                 ></input>
                 <button
                   onClick={handleButton}
