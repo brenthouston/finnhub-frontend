@@ -1,9 +1,10 @@
 import TickSearch from '../../utils/TickSearch'
+import API from '../../utils/API'
 import "./style.css";
 import { useState } from "react";
 
 
-const TickerSearch = () => {
+const TickerSearch = (props) => {
   
   
 
@@ -49,6 +50,25 @@ const handleInputChange = event =>{
   const handleButton =(event)=>{
     event.preventDefault();
    searchTicker(search)
+  }
+
+
+  async function saveStock(){
+    try{
+      if(search != ''){
+        const response = await API.findStockTicker(search)
+        const stockId = response.data._id
+        const addStock = await API.addStock(props.userId,stockId )
+      }
+      
+    }catch(err){
+      if(err.toString() === 'Error: That stock wasnt in the database'){
+        const createdStock = await API.createStock(search)
+        const newStockId = createdStock.data._id
+        const addNewStock = await API.addStock(props.userId,newStockId)
+      }
+      console.log(err)
+    }
   }
 
 
@@ -133,7 +153,9 @@ const handleInputChange = event =>{
               
             </ul>
           </div>
-          <button    className="btn"
+          <button 
+                  onClick={saveStock}
+                  className="btn"
                   style={{
                     background: "#65293d",
                     color: "#d8d1bc",

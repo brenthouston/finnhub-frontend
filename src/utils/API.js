@@ -59,7 +59,7 @@ const API = {
     },
     updateProfilePic:async (username,url)=>{
         try{
-         const response = await axios.put(`${URL_PREFIX}/api/users/username/profilepic/${username}`,
+         const response = await axios.put(`${URL_PREFIX}/api/users/profilepic/${username}`,
          {
             profile_pic: url,
             })
@@ -81,6 +81,40 @@ const API = {
         }
         catch(err){
             throw new Error("falied login");
+
+        }
+    },
+    createStock:async (stock)=>{
+        try{
+         const response = await axios.post(`${URL_PREFIX}/api/stocks/`,{
+            ticker:stock
+         })
+        return response
+        }
+        catch(err){
+            throw new Error("falied login");
+
+        }
+    },
+    findStockTicker:async(ticker)=>{
+        try{
+         const response = await axios.get(`${URL_PREFIX}/api/stocks/ticker/${ticker}`,{
+         })
+        return response
+        }
+        catch(err){
+            throw new Error("That stock wasnt in the database");
+
+        }
+    },
+    addStock:async(user,stock)=>{
+        try{
+         const response = await axios.post(`${URL_PREFIX}/api/users/${user}/stock/${stock}`,{
+         })
+        return response
+        }
+        catch(err){
+            throw new Error("That stock wasnt in the database");
 
         }
     },
