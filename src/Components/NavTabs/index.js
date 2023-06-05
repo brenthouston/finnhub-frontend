@@ -6,6 +6,7 @@ import { useState } from "react";
 function NavTabs(props) {
   const[currentPage, setCurrentPage] = useState()
 
+
   return (
     <div className="nav container-fluid ">
       <h4 className="logo">FinHub</h4>
