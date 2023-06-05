@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import './style.css';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
+// import { Modal, Button } from 'react-bootstrap'
 import API from '../../utils/API'
 
 export default function BioForm(props) {

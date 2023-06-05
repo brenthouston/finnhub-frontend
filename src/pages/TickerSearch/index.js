@@ -1,6 +1,6 @@
 import TickSearch from '../../utils/TickSearch'
 import "./style.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 const TickerSearch = () => {
@@ -39,10 +39,7 @@ async function searchTicker (query){
 
 }
 
-  // useEffect(() => {
-  //  const result=searchTicker('AAPL')
-  //  console.log("RESULT",result);
-  // },[]);
+ 
 
 
 const handleInputChange = event =>{
@@ -53,18 +50,6 @@ const handleInputChange = event =>{
     event.preventDefault();
    searchTicker(search)
   }
-
-
-
-  // const{ data:[{name}] } = name;
-  // const{ data:[{price}] } = price;
-  // const{ data:[{day_high}] } = day_high;
-  // const{ data:[{day_low}] } = day_low;
-  // const{ data:[{day_open}] } = day_open;
-  // const{ data:[{day_change}] } = day_change;
-  // const{ data:[{volume}] } = volume;
-
-  // const{data: [{name, price, day_high ,day_low,day_open, day_change,volume}]}=result;
 
 
 

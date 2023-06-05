@@ -62,6 +62,7 @@ function App() {
         <Route path="/chathub/" element={<ChatHub username = {username} useSocket = {socket} />} />
         <Route path="/chatroom/:roomID" element={<ChatRoom useSocket = {socket} username={username}/>} />
         <Route path="/profile/:username" element={<Profile username = {username}/>} />
+        <Route path="/signals" element={<Signals/>} />
       </Routes>
     </Router>
     </div>
