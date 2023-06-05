@@ -2,15 +2,25 @@ import React, {useState,useEffect} from "react";
 import "./style.css";
 import axios from 'axios'
 import API from '../../utils/API'
+import { useNavigate } from "react-router-dom";
 
 
 
 export default function Login(props) {
-
-
+  console.log('username from props', props.username)
+  const navigate = useNavigate()
   const [username,setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [email, setemail] = useState('')
+
+  console.log('logged in? ', props.isLoggedIn)
+  console.log('username?  ', props.username)
+
+  useEffect(()=>{
+    if(props.isLoggedIn){
+      navigate(`/profile/${props.username}`)
+    }
+  })
 
   function handleChange(e){
     if(e.target.name === 'username'){
@@ -23,16 +33,13 @@ export default function Login(props) {
   }
 
   async function handleLogin(e){
-    console.log('pressed the login button')
     e.preventDefault()
     try{
       const response = await API.login(username,password)
-      console.log(response)
       props.setToken(response.data.token)
       props.setUsername(response.data.user.username)
-      props.setUserId(response.data.user._id)
       localStorage.setItem("token", response.data.token);
-
+      navigate(`/profile/${username}`)
 
     }catch(err){
       console.log(err)

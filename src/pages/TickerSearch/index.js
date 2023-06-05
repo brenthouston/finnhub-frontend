@@ -1,7 +1,73 @@
-import React from "react";
+import TickSearch from '../../utils/TickSearch'
 import "./style.css";
+import { useState, useEffect } from "react";
 
-export default function TickerSearch() {
+
+const TickerSearch = () => {
+  
+  
+
+  const [search, setSearch] =useState('')
+  const [name, setName]= useState('')
+  const [price, setPrice]= useState('')
+  const [day_high, setDay_high]= useState('')
+  const [day_low, setDay_low]= useState('')
+  const [day_open, setDay_open]= useState('')
+  const [day_change, setDay_change]= useState('')
+  const [volume, setVolume]= useState('')
+  
+  
+  
+  
+async function searchTicker (query){
+  try{
+    const response = await TickSearch.search(query)
+    console.log('reponse', response)
+    setName(response.data.data[0].name);
+    setPrice(response.data.data[0].price);
+    setDay_high(response.data.data[0].day_high);
+    setDay_low(response.data.data[0].day_low);
+    setDay_open(response.data.data[0].day_open);
+    setDay_change(response.data.data[0].day_change);
+    setVolume(response.data.data[0].volume);
+   
+
+  }catch(err){
+    console.log(err)
+  }
+  
+
+}
+
+  // useEffect(() => {
+  //  const result=searchTicker('AAPL')
+  //  console.log("RESULT",result);
+  // },[]);
+
+
+const handleInputChange = event =>{
+   setSearch(event.target.value)
+}
+
+  const handleButton =(event)=>{
+    event.preventDefault();
+   searchTicker(search)
+  }
+
+
+
+  // const{ data:[{name}] } = name;
+  // const{ data:[{price}] } = price;
+  // const{ data:[{day_high}] } = day_high;
+  // const{ data:[{day_low}] } = day_low;
+  // const{ data:[{day_open}] } = day_open;
+  // const{ data:[{day_change}] } = day_change;
+  // const{ data:[{volume}] } = volume;
+
+  // const{data: [{name, price, day_high ,day_low,day_open, day_change,volume}]}=result;
+
+
+
   return (
     <div className="container">
       <div className="row">
@@ -17,20 +83,26 @@ export default function TickerSearch() {
                 <p style={{ padding: "0", color: "#7f7c3d", fontSize: "22px" }}>
                   Search for Ticker
                 </p>
+
                 <input
+                  onChange={handleInputChange}
+                  value={search}
                   type="text"
                   className="form-control"
-                  placeholder="Username"
+                  placeholder="AAPL"
                 ></input>
                 <button
-                  type="button"
+                  onClick={handleButton}
+                  type="submit"
                   className="btn"
                   style={{
                     background: "#65293d",
                     color: "#d8d1bc",
                     display: "flex",
                     padding: "0",
+                    
                   }}
+       
                 >
                   Search
                 </button>
@@ -51,33 +123,38 @@ export default function TickerSearch() {
         <div className="col p-4 g-4 ">
             
           <div className="text-center">
-          <h1 style={{ fontWeight: "lighter", fontSize:"2rem", marginLeft:"0"}}>AAPL</h1>
+          <h1 style={{ fontWeight: "lighter", fontSize:"2rem", marginLeft:"0"}}>{name}</h1>
          
           <div className="row " style={{padding:"0", marginTop:"0", marginRight:"0"}}>
             <div className="col text-start">
           <ul>
-            <li><p>Open</p></li>
+            <li><p>Price</p></li>
             <li><p>High</p></li>
             <li><p>Low</p></li>
-            <li><p>Mkt cap</p></li>
-            <li><p>P/E ratio</p></li>
-            <li><p>Div yield</p></li>
-            <li><p>52-wk high</p></li>
-            <li><p>52-wk low</p></li>
+            <li><p>Open</p></li>
+            <li><p>Day change</p></li>
+            <li><p>Volume</p></li>
+           
           </ul>
           </div>
           <div className="col text-end">
             <ul>
-                <li><p>$176.97</p></li>
-                <li><p>$178.97</p></li>
-                <li><p>$176.57</p></li>
-                <li><p>$2.79T</p></li>
-                <li><p>30.10</p></li>
-                <li><p>0.54%</p></li>
-                <li><p>$178.97</p></li>
-                <li><p>$124.17</p></li>
+                <li><p>{price}</p></li>
+                <li><p>{day_high}</p></li>
+                <li><p>{day_low}</p></li>
+                <li><p>{day_open}</p></li>
+                <li><p>{day_change}</p></li>
+                <li><p>{volume}</p></li>
+              
             </ul>
           </div>
+          <button    className="btn"
+                  style={{
+                    background: "#65293d",
+                    color: "#d8d1bc",
+                    display: "flex",
+                    padding: "0",
+                  }}>Save</button>
           </div>
           </div>
           
@@ -87,3 +164,4 @@ export default function TickerSearch() {
     </div>
   );
 }
+export default TickerSearch

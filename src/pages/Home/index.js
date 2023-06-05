@@ -2,22 +2,7 @@ import React,{useState} from "react";
 import "./style.css";
 import axios from 'axios'
 const URL = 'http://localhost:3001'
-// require('dotenv').config()
 
-// async function getStockInfo() {
-//   const symbol = 'appl'
-//   console.log(process.env.REACT_APP_API_TOKEN)
-//   const api_url = `https://api.stockdata.org/v1/data/quote?symbols=${symbol}&api_token=${process.env.API_TOKEN}`
-
-//   const response = await fetch(api_url);
-//   const data = await response.json();
-
-//   const { name, ticker, price, day_high, day_low, day_open, market_cap, previous_close_price, day_change, volume } = data;
-//   console.log(name)
-// }
-
-
-// getStockInfo()
 
 export default function Home() {
   const [userSearch, setUserSearch] = useState('')
@@ -40,7 +25,6 @@ export default function Home() {
   
    function handleUserSearch(e){
     e.preventDefault()
-    console.log('pressed search button')
     window.location.href = `/profile/${userSearch}`
     setUserSearch('')
   }
@@ -72,7 +56,7 @@ export default function Home() {
           <div className="user_search">
             <p style={{color: "#7f7c3d", fontSize: "22px"}}>Search for User</p>
             <div className="input-group input-group-lg">
-            <input type="text" placeholder="Username" className="inputgroup-sizing-lg"></input>
+            <input onChange = {handleChange} name = 'userSearch' value={userSearch} type="text" placeholder="Username" className="inputgroup-sizing-lg"></input>
             </div>
             <button onClick = {handleUserSearch} type="button" className="btn" style={{background: "#65293d", color: "#d8d1bc", display:"flex", padding:"0"}}>Search</button>
             </div>

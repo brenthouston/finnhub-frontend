@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './style.css';
 
-function NavTabs(currentPage){
+function NavTabs(props){
     let active = '';
 
     return(
@@ -12,16 +12,16 @@ function NavTabs(currentPage){
             </h4>
         <ul className="links col d-flex justify-content-end">
             <li className="nav-item px-4 mt-4">
-                <Link className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/">Home</Link>
+                <Link className={props.currentPage === 'Home' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/Home">Home</Link>
             </li>
             <li className="nav-item px-4 mt-4">
-                <Link className={currentPage === 'Profile' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/Profile/noUser">Profile</Link>
+                <Link className={props.currentPage === 'Profile' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to= {`/Profile/${props.username}`}>Profile</Link>
             </li>
             <li className="nav-item px-4 mt-4">
-                <Link className={currentPage === 'ChatHub' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/ChatHub">ChatHub</Link>
+                <Link className={props.currentPage === 'ChatHub' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/ChatHub">ChatHub</Link>
             </li>
             <li className="nav-item px-4 mt-4">
-                <Link className={currentPage === 'Signals' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/Signals">Signals</Link>
+                <Link className={props.currentPage === 'Signals' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/Signals">Signals</Link>
             </li>
             
         </ul>

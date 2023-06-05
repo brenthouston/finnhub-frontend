@@ -8,7 +8,6 @@ export default function Watchlist(props) {
     async function deleteStock(userID, stockID){
         try {
           const response = await axios.delete(`${URL}/api/users/${userID}/stock/${stockID}`);
-          console.log(response)
         } catch (error) {
           console.error(error);
         }
@@ -16,9 +15,7 @@ export default function Watchlist(props) {
 
     function dltBtn(e){
         const user2dlt = props.userID
-        console.log('user ID' ,props.userID)
         const stock2dlt = e.target.id
-        console.log('stock ID',e.target.id)
         for (let i = 0; i < props.currentList.length; i++) {
             const stock = props.currentList[i];
             const id = stock._id
@@ -31,7 +28,6 @@ export default function Watchlist(props) {
         deleteStock(user2dlt,stock2dlt)
     }
 
-    console.log('these are the current stocks' , props.currentList)
 
   return (
     <div className="row">
