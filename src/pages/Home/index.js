@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import "./style.css";
 import axios from 'axios'
+import API from '../../utils/API'
 const URL = 'http://localhost:3001'
 
 
@@ -13,19 +14,22 @@ export default function Home() {
     }
   }
   
-  async function getUser() {
+
+
+   async function handleUserSearch(e){
+    e.preventDefault()
     try {
-      const response = await axios.get(`${URL}/api/users`);
+      const response = await API.getUserByName(userSearch);
+      if(response.status ===200){
+        console.log('it was successful search')
+        window.location.href = `/profile/${userSearch}`
+      }
       console.log(response);
     } catch (error) {
+      console.log('no user was found on that search')
+      alert('No user found with that username ')
       console.error(error);
     }
-  }
-
-  
-   function handleUserSearch(e){
-    e.preventDefault()
-    window.location.href = `/profile/${userSearch}`
     setUserSearch('')
   }
 
