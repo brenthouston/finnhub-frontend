@@ -55,9 +55,9 @@ function App() {
     <div className="container-fluid" style={{ backgroundImage: `url(${bg})`, backgroundPosition:"center",backgroundSize:"cover",width:'100vw',height:'100vh', margin_top:'100px'
      }}>
     <Router>
-      <NavTabs username = {username} />
+      <NavTabs username = {username} logout={logout}/>
       <Routes>
-        <Route path="/Home" element={<Home/>} />
+        <Route path="/home" element={<Home/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/login" element={<Login setToken = {setToken} setUsername = {setUsername} username = {username} isLoggedIn = {isLoggedIn}/>}  />
         <Route path="/" element={<SignUp setToken = {setToken} setUsername = {setUsername} username = {username} isLoggedIn = {isLoggedIn}/>} />

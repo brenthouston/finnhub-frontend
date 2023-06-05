@@ -1,38 +1,99 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './style.css';
+import "./style.css";
+import { useState } from "react";
 
-function NavTabs(props){
-    let active = '';
+function NavTabs(props) {
+  const[currentPage, setCurrentPage] = useState()
 
-    return(
-        <div className="nav container-fluid ">
-            <h4 
-                className="logo">FinHub
-            </h4>
-        <ul className="links col d-flex justify-content-end">
-            <li className="nav-item px-4 mt-4">
-                <Link className={props.currentPage === 'Home' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/Home">Home</Link>
-            </li>
-            <li className="nav-item px-4 mt-4">
-                <Link className={props.currentPage === 'Profile' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to= {`/Profile/${props.username}`}>Profile</Link>
-            </li>
-            <li className="nav-item px-4 mt-4">
-                <Link className={props.currentPage === 'ChatHub' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/ChatHub">ChatHub</Link>
-            </li>
-            <li className="nav-item px-4 mt-4">
-                <Link className={props.currentPage === 'Signals' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/Signals">Signals</Link>
-            </li>
-            <li className="nav-item px-4 mt-4">
-                <Link className={props.currentPage === 'TickerSearch' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/tickerSearch">Ticker Search</Link>
-            </li>
-            {/* <li className="nav-item px-4 mt-4">
-                {props.username === username && <Link className={props.currentPage === 'Logout' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/Login" onClick={logout}>Logout</Link>}
-            </li> */}
-        </ul>
-        </div>
 
-    )
+  return (
+    <div className="nav container-fluid ">
+      <h4 className="logo">FinHub</h4>
+      <ul className="links col d-flex justify-content-end">
+        <li className="nav-item px-4 mt-4">
+          <Link
+            className={
+              currentPage === "home" ? "nav-link active" : "nav-link"
+            }
+            onClick={()=>setCurrentPage("home")}
+            to="/home"
+          >
+            Home
+          </Link>
+        </li>
+        <li className="nav-item px-4 mt-4">
+          <Link
+            className={
+              currentPage === "profile" ? "nav-link active" : "nav-link"
+            }
+            onClick={()=>setCurrentPage("profile")}
+            to={`/profile/${props.username}`}
+          >
+            Profile
+          </Link>
+        </li>
+        <li className="nav-item px-4 mt-4">
+          <Link
+            className={
+              currentPage === "chathub" ? "nav-link active" : "nav-link"
+            }
+            onClick={()=>setCurrentPage("chathub")}
+            to="/chathub"
+          >
+            ChatHub
+          </Link>
+        </li>
+        <li className="nav-item px-4 mt-4">
+          <Link
+            className={
+              currentPage === "signals" ? "nav-link active" : "nav-link"
+            }
+            onClick={()=>setCurrentPage("signals")}
+            to="/signals"
+          >
+            Signals
+          </Link>
+        </li>
+        <li className="nav-item px-4 mt-4">
+          <Link
+            className={
+              currentPage === "tickersearch"
+                ? "nav-link active"
+                : "nav-link"
+            }
+            onClick={()=>setCurrentPage("tickersearch")}
+            to="/tickersearch"
+          >
+            Ticker Search
+          </Link>
+        </li>
+        <li className="nav-item px-4 mt-4">
+          {props.username ? (
+            <Link
+              className={
+                currentPage === "logout" ? "nav-link active" : "nav-link"
+              }
+              to="/login"
+              onClick={props.logout}
+            >
+              Logout
+            </Link>
+          ) : (
+            <Link
+              className={
+                currentPage === "login" ? "nav-link active" : "nav-link"
+              }
+              onClick={()=>setCurrentPage("login")}
+              to="/login"
+            >
+              Login
+            </Link>
+          )}
+        </li>
+      </ul>
+    </div>
+  );
 }
 
 export default NavTabs;
