@@ -23,7 +23,9 @@ function NavTabs(props){
             <li className="nav-item px-4 mt-4">
                 <Link className={props.currentPage === 'Signals' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/Signals">Signals</Link>
             </li>
-            
+            <li className="nav-item px-4 mt-4">
+                {props.username === username && <Link className={props.currentPage === 'Logout' ? 'nav-link active' : 'nav-link'} style={{color: active ? '#65293d' : '#7f7c3d'}} to="/login" onClick={logout}>Logout</Link>}
+            </li>
         </ul>
         </div>
 
