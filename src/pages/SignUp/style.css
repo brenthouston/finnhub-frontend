@@ -1,0 +1,40 @@
+/* h1
+Basic Sans Thin
+font-family: "basic-sans", sans-serif;
+font-weight: 100;
+font-style: normal; 
+*/
+
+/* nav
+Basic Sans SemiBold It
+font-family: "basic-sans", sans-serif;
+font-weight: 600;
+font-style: italic; */
+
+/* logo
+Basic Sans Regular
+color: var(--primary);
+font-family: "basic-sans", sans-serif;
+font-weight: 400;
+font-style: normal; */
+
+
+/* SignUp
+font-family: "basic-sans", sans-serif;
+font-weight: 900;
+font-style: normal; */
+
+
+
+
+
+:root {
+    --bgGrn: #15261c;
+    --cardGrn:#253f30; 
+    --hdBlk:  #0e1812;
+    --primary: #acaa82;
+    --accentLight: #d8d1bc;
+    --accentDark: #7f7c3d;
+    --accentPlum: #65293d;
+ }
+

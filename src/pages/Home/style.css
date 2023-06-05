@@ -53,6 +53,12 @@ h3{
     
     
 }
+h2{
+    color: var(--primary);
+    font-family: "basic-sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
 .w_card{
     width:45rem;
     height: 15rem;
@@ -72,7 +78,7 @@ h3{
     border-radius: 7px;
     margin: 20px;
 }
-.container{
+.container.home{
     display: flex;
     flex-wrap: wrap;
    }
@@ -84,13 +90,16 @@ h3{
     font-family: "basic-sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-    padding: 25px 20px 0 20px;
+   
    }
 
  .bulletP{
     margin-left: 30%;
     color:var(--primary);
     list-style-type: disc;
+    font-family: "basic-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal
  }
 
  aside{
@@ -101,19 +110,14 @@ h3{
  }
 
 
- input{
-    background-color: var(--accentLight);
-    width: 60%;
-    border-style: none;
-    border-radius: 10px;
-    height: 1.25rem;
-    
- }
-
  div.input-group.input-group-lg{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;background-color: var(--accentLight);
+    width: 60%;
+    border-style: none;
+    border-radius: 3px;
+    height: 1.5rem;
  }
 
 
@@ -132,3 +136,9 @@ h3{
    
     
  }
+ul{
+    color:var(--primary);
+    font-family: "basic-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal
+}

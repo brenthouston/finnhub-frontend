@@ -1,15 +1,46 @@
-import React from "react";
+import React,{useState} from "react";
 import "./style.css";
+import axios from 'axios'
+import API from '../../utils/API'
+const URL = 'http://localhost:3001'
+
 
 export default function Home() {
+  const [userSearch, setUserSearch] = useState('')
+
+  function handleChange(e){
+    if(e.target.name === 'userSearch'){
+      setUserSearch(e.target.value)
+    }
+  }
+  
+
+
+   async function handleUserSearch(e){
+    e.preventDefault()
+    try {
+      const response = await API.getUserByName(userSearch);
+      if(response.status ===200){
+        console.log('it was successful search')
+        window.location.href = `/profile/${userSearch}`
+      }
+      console.log(response);
+    } catch (error) {
+      console.log('no user was found on that search')
+      alert('No user found with that username ')
+      console.error(error);
+    }
+    setUserSearch('')
+  }
+
   return (
-    <div className="container">
+    <div className="container home">
       <div className="row">
         <section className="col m-5">
           <h1 style={{fontWeight:"lighter" }}>Dashboard</h1>
           <h3>What is FinHub?</h3>
           <div className="container w_card">
-            <p>
+            <p style={{ padding: '25px 20px 0 20px'}}>
               <strong>Welcome to FinHub</strong>, where finance meets community.
               Whether you're a seasoned trader or just starting your journey,
               our platform equips you with the tools, knowledge, and connections
@@ -29,9 +60,9 @@ export default function Home() {
           <div className="user_search">
             <p style={{color: "#7f7c3d", fontSize: "22px"}}>Search for User</p>
             <div className="input-group input-group-lg">
-            <input type="text" placeholder="Username" className="inputGroup-sizing-lg"></input>
+            <input onChange = {handleChange} name = 'userSearch' value={userSearch} type="text" placeholder="Username" className="inputgroup-sizing-lg"></input>
             </div>
-            <button type="button" className="btn" style={{background: "#65293d", color: "#d8d1bc", display:"flex", padding:"0"}}>Search</button>
+            <button onClick = {handleUserSearch} type="button" className="btn" style={{background: "#65293d", color: "#d8d1bc", display:"flex", padding:"0"}}>Search</button>
             </div>
 
           <div className="ticker_search">

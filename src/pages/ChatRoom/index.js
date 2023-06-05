@@ -8,12 +8,14 @@ import Message from '../../Components/Message'
 
 
 export default function ChatRoom(props) {
+  console.log('username prop', props.username)
   const socket = props.useSocket
   const [sentMessage, setSentMessage] = useState('')
   const [messageList, setMessageList] = useState([])
 
 useEffect(() => {
   socket.emit('joinRoom',window.location.pathname.split('/')[2], 'user')
+  console.log(window.location.pathname.split('/')[2])
   
   socket.on('chat-message',data => {
     setMessageList((state) => [...state,data] )
@@ -43,7 +45,7 @@ function addMessage(newMessage) {
   function handleSubmit(e){
     e.preventDefault()
     console.log(messageList)
-    socket.emit('send-chat-message',window.location.pathname.split('/')[2],sentMessage,'user')
+    socket.emit('send-chat-message',window.location.pathname.split('/')[2],sentMessage,props.username)
     setSentMessage('')
   }
 

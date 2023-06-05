@@ -32,19 +32,20 @@ font-style: normal; */
     --accentPlum: #65293d;
  }
 
+
 body{
     background-color: var(--bgGrn)
-  
 }
 
 .nav{
-    width: 100%;
+    width: 100vw;
     font-size: 1.25rem;
     background-color: var(--hdBlk);
     font-family: "basic-sans", sans-serif;
     font-weight: 100;
     font-style: italic;
     margin-bottom: 25px;
+    margin-left: -25px
    
 }
 
@@ -60,4 +61,12 @@ ul{
     list-style: none;
     margin-top: 15px;
     margin-right: 76px;
+}
+
+.active {
+    color:#65293d;
+}
+
+.nav-link {
+    color: #7f7c3d;
 }
