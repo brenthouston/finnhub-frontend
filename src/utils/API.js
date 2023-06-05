@@ -59,7 +59,7 @@ const API = {
     },
     updateProfilePic:async (username,url)=>{
         try{
-         const response = await axios.put(`${URL_PREFIX}/api/users/username/profilepic/${username}`,
+         const response = await axios.put(`${URL_PREFIX}/api/users/profilepic/${username}`,
          {
             profile_pic: url,
             })
