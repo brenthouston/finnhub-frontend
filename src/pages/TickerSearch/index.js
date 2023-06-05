@@ -24,13 +24,17 @@ async function searchTicker (query){
   try{
     const response = await TickSearch.search(query)
     console.log('reponse', response)
-    setName(response.data.data[0].name);
-    setPrice(response.data.data[0].price);
-    setDay_high(response.data.data[0].day_high);
-    setDay_low(response.data.data[0].day_low);
-    setDay_open(response.data.data[0].day_open);
-    setDay_change(response.data.data[0].day_change);
-    setVolume(response.data.data[0].volume);
+    if(response.data.data.length !=0){
+      setName(response.data.data[0].name);
+      setPrice(response.data.data[0].price);
+      setDay_high(response.data.data[0].day_high);
+      setDay_low(response.data.data[0].day_low);
+      setDay_open(response.data.data[0].day_open);
+      setDay_change(response.data.data[0].day_change);
+      setVolume(response.data.data[0].volume);
+    }else{
+      alert('That was not a valid stock')
+    }
    
 
   }catch(err){
@@ -40,16 +44,18 @@ async function searchTicker (query){
 
 }
 
- 
-
-
 const handleInputChange = event =>{
-   setSearch(event.target.value)
+   setSearch(event.target.value.toUpperCase())
 }
 
   const handleButton =(event)=>{
     event.preventDefault();
-   searchTicker(search)
+   console.log('search',search)
+   if(search != ''){
+     searchTicker(search)
+   }else{
+    alert('please enter a stock')
+   }
   }
 
 
@@ -59,6 +65,8 @@ const handleInputChange = event =>{
         const response = await API.findStockTicker(search)
         const stockId = response.data._id
         const addStock = await API.addStock(props.userId,stockId )
+      }else{
+        console.log('IT WAS EMPTY')
       }
       
     }catch(err){
@@ -153,15 +161,7 @@ const handleInputChange = event =>{
               
             </ul>
           </div>
-          <button 
-                  onClick={saveStock}
-                  className="btn"
-                  style={{
-                    background: "#65293d",
-                    color: "#d8d1bc",
-                    display: "flex",
-                    padding: "0",
-                  }}>Save</button>
+         {props.username &&<button onClick={saveStock} className="btn"style={{background: "#65293d",color: "#d8d1bc", display: "flex",padding: "0",}}>Save</button>}
           </div>
           </div>
           
