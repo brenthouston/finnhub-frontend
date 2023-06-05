@@ -62,3 +62,11 @@ ul{
     margin-top: 15px;
     margin-right: 76px;
 }
+
+.active {
+    color:#65293d;
+}
+
+.nav-link {
+    color: #7f7c3d;
+}
