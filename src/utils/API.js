@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const URL_PREFIX = "https://finhub.herokuapp.com/"
+const URL_PREFIX = "https://finhub.herokuapp.com"
 
 const API = {
     getUserByName:async(username)=>{
