@@ -15,6 +15,7 @@ import {useState,useEffect} from 'react'
 import API from './utils/API.js'
 
 const URL = 'http://localhost:3001'
+// const URL = 'https://finhub.herokuapp.com/'
 
 const socket = io(URL)
 const bg =background
