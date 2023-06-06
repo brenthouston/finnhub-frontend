@@ -6,7 +6,7 @@ import API from "../../utils/API"
 import BioForm from "../../Components/BioForm";
 import TickSearch from "../../utils/TickSearch";
 import Error from '../../Components/Error'
-const URL = 'http://localhost:3001'
+// const URL = 'http://localhost:3001'
 
 const ianAPIKey = '9FGEWT5F3EERGO89'
 
