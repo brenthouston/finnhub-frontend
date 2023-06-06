@@ -5,7 +5,7 @@ async function FinancialMarkets() {
     const response =  await axios.get(
       `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&topics=finacial_markets&sort=LATEST&limit=8&apikey=B69YYGDXTYZTC5W0`
     );
-      console.log(response.data.feed);
+     
     return response;
   } catch (error) {
     console.error(error);

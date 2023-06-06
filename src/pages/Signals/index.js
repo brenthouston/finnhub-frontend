@@ -6,25 +6,26 @@ import CardAPI from "../../utils/CardAPI";
 import CardDetail from "../../Components/CardDetail";
 
 export default function Signals() {
-  const [result, setResult] = useState({
-    title: "",
-    url: "",
-    summary: "",
-    banner_image: "",
-    source: "",
-    overall_sentiment_label: "",
-  });
+  const [results, setResults] = useState([]);
 
   const populate = () => {
-    CardAPI.FinancialMarkets()
-      .then((res) => setResult(res.data.feed[0]))
-      .catch((err) => console.log(err));
-    console.log(result);
-  };
 
+    
+    CardAPI.FinancialMarkets()
+      .then((res) => {
+        console.log(res.data.feed);
+        setResults(res.data.feed);
+      })
+      .catch((err) => console.log(err));
+   
+   
+ 
+};
   useEffect(() => {
     populate();
   }, []);
+
+
 
   return (
     <div className="container">
@@ -32,37 +33,23 @@ export default function Signals() {
         <h1 style={{ fontWeight: "lighter" }}>Signals</h1>
         <h3>Market News and Sentiment</h3>
       </div>
-      <div className="row">
-      <div className="col-6">
-      {/* SignalCards */}
-      {result.title ? (
-        <Card heading={result.title}>
-          <CardDetail
-            title={result.title}
-            src={result.banner_image}
-            source={result.source}
-            summary={result.summary}
-            sentiment={result.overall_sentiment_label}
-            url={result.url}
-          />
-        </Card>
-      ) : null}
-      </div>
-      <div className="col-6">
-      {/* SignalCards */}
-      {result.title ? (
-        <Card heading={result.title}>
-          <CardDetail
-            title={result.title}
-            src={result.banner_image}
-            source={result.source}
-            summary={result.summary}
-            sentiment={result.overall_sentiment_label}
-            url={result.url}
-          />
-        </Card>
-      ) : null}
-      </div>
+       <div className="row">
+        {results.slice(0,9).map((result, index) => (
+          <div className="col-4 p-3" key={index}>
+            {result.title && (
+              <Card heading={result.title}>
+                <CardDetail
+                  title={result.title}
+                  src={result.banner_image}
+                  source={result.source}
+                  summary={result.summary}
+                  sentiment={result.overall_sentiment_label}
+                  url={result.url}
+                />
+              </Card>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );

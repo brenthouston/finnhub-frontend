@@ -3,13 +3,15 @@ import "./style.css";
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import API from '../../utils/API'
+import Error from '../../Components/Error'
 
 export default function SignUp(props) {
   const navigate = useNavigate()
   const [username,setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
-
+  const [show, setShow] = useState(false);
+  const [errorMsg, setErrMsg] = useState('')
 
   function handleChange(e){
     if(e.target.name === 'username'){
@@ -23,16 +25,24 @@ export default function SignUp(props) {
 
   async function handleSignup(e){
     e.preventDefault()
-    console.log('pressed signup')
-    try{
-      const response = await API.signup(username,password,email)
-      props.setToken(response.data.token)
-      props.setUsername(response.data.user.username)
-      localStorage.setItem("token", response.data.token);
-      navigate(`/profile/${username}`)
-
-    }catch(err){
-      console.log(err)
+    if(username === '' || password === '' || email === ''){
+      setShow(true)
+      setErrMsg('please enter all information')
+    }else{
+      try{
+        const response = await API.signup(username,password,email)
+        props.setToken(response.data.token)
+        props.setUsername(response.data.user.username)
+        localStorage.setItem("token", response.data.token);
+        navigate(`/profile/${username}`)
+  
+      }catch(err){
+        console.log('err',err)
+        //alert('username or email may already be taken')
+        setShow(true)
+        setErrMsg('username or email may already be taken')
+        console.log(err)
+      }
     }
   }
 
@@ -42,7 +52,6 @@ export default function SignUp(props) {
       <div><h3 style={{ marginLeft: "0", textAlign: "center", margin: "50px", fontSize:"4rem"}}>
           Welcome to FinHub!
         </h3></div>
-      
       
       <div className="container col-lg-6 mb-5 mb-lg-0">
           <div className="card" style={{background:"var(--cardGrn)"}}>
@@ -90,8 +99,9 @@ export default function SignUp(props) {
                 Trading. Connecting. Thriving.
               </h3>
             </div>
+            <Error errorMsg = {errorMsg} show = {show} setShow = {setShow}/>
       </div>
   
-    
+  
   );
 }

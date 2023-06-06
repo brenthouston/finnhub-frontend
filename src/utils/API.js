@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const URL_PREFIX = "https://finhub.herokuapp.com"
+// const URL_PREFIX = "http://localhost:3001"
 
 const API = {
     getUserByName:async(username)=>{
@@ -38,7 +39,7 @@ const API = {
         return response
         }
         catch(err){
-            throw new Error("falied login");
+            throw new Error("failed login");
 
         }
     },
@@ -53,7 +54,7 @@ const API = {
         return response
         }
         catch(err){
-            throw new Error("falied login");
+            throw new Error("failed signup");
 
         }
     },
@@ -66,7 +67,7 @@ const API = {
         return response
         }
         catch(err){
-            throw new Error("falied login");
+            throw new Error("something went wrong");
 
         }
     },
@@ -80,19 +81,25 @@ const API = {
         return response
         }
         catch(err){
-            throw new Error("falied login");
+            throw new Error("something went wrong");
 
         }
     },
-    createStock:async (stock)=>{
+    createStock:async (stock,price,high,low,open,day_change,volume)=>{
         try{
          const response = await axios.post(`${URL_PREFIX}/api/stocks/`,{
-            ticker:stock
+            ticker:stock,
+            price:price,
+            high:high,
+            low:low,
+            open:open,
+            day_change:day_change,
+            volume:volume,
          })
         return response
         }
         catch(err){
-            throw new Error("falied login");
+            throw new Error("stock not created");
 
         }
     },
@@ -118,6 +125,23 @@ const API = {
 
         }
     },
+    updateStock:async (stock,price,high,low,open,day_change,volume)=>{
+        try{
+         const response = await axios.put(`${URL_PREFIX}/api/stocks/ticker/${stock}`,{
+            price:price,
+            high:high,
+            low:low,
+            open:open,
+            day_change:day_change,
+            volume:volume,
+         })
+        return response
+        }
+        catch(err){
+            throw new Error("failed to update the stock");
+
+        }
+    }
   }
 
 
