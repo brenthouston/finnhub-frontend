@@ -3,7 +3,7 @@ import "./style.css";
 import axios from 'axios'
 import API from '../../utils/API'
 import { useNavigate } from "react-router-dom";
-
+import Error from '../../Components/Error'
 
 
 export default function Login(props) {
@@ -11,6 +11,8 @@ export default function Login(props) {
   const [username,setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [email, setemail] = useState('')
+  const [show, setShow] = useState(false);
+  const [errorMsg, setErrMsg] = useState('')
 
   useEffect(()=>{
     if(props.isLoggedIn){
@@ -40,7 +42,8 @@ export default function Login(props) {
     }catch(err){
       console.log(err)
       if(err.toString() == 'Error: failed login'){
-        alert('incorrect user name or password')
+        setShow(true)
+        setErrMsg('incorrect username or password')
       }
     }
   }
@@ -144,6 +147,7 @@ export default function Login(props) {
                 Trading. Connecting. Thriving.
               </h3>
             </div>
+            <Error errorMsg = {errorMsg} show = {show} setShow = {setShow}/>
     </div>
   );
 }

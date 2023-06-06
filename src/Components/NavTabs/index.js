@@ -63,9 +63,7 @@ function NavTabs(props) {
           </Link>
         </li>
         <li className="nav-item px-4 mt-4">
-          {props.username ? (<Link className={currentPage === "logout" ? "nav-link active" : "nav-link" } to="/login"onClick={props.logout}>Logout</Link>
-          ) : (
-            <Link
+          {props.username ? (<Link className={currentPage === "logout" ? "nav-link active" : "nav-link" } to="/login"onClick={props.logout}>Logout</Link>) : (<Link
               className={
                 currentPage === "login" ? "nav-link active" : "nav-link"
               }
