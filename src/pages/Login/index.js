@@ -7,14 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Login(props) {
-  console.log('username from props', props.username)
   const navigate = useNavigate()
   const [username,setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [email, setemail] = useState('')
-
-  console.log('logged in? ', props.isLoggedIn)
-  console.log('username?  ', props.username)
 
   useEffect(()=>{
     if(props.isLoggedIn){
@@ -43,6 +39,9 @@ export default function Login(props) {
 
     }catch(err){
       console.log(err)
+      if(err.toString() == 'Error: failed login'){
+        alert('incorrect user name or password')
+      }
     }
   }
 
