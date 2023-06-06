@@ -36,7 +36,7 @@ export default function Watchlist(props) {
         <div className="price"><h4 className="text-success">${props.price}</h4></div>
         <div className={props.day_change.includes('-')?"percent_change_neg":"percent_change_pos"}><h4>${props.day_change}</h4></div>
         {/* <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Edit</button> */}
-        {props.username && <button onClick = {dltBtn} id = {props.stockID} type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Delete</button>}
+        {props.username === props.currentUser && <button onClick = {dltBtn} id = {props.stockID} type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Delete</button>}
     </div>
   </div>
   )

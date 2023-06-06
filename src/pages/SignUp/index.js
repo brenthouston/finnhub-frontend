@@ -53,7 +53,7 @@ export default function SignUp(props) {
           Welcome to FinHub!
         </h3></div>
       
-      <div className="container col-lg-6 mb-5 mb-lg-0">
+      <div className="container col-lg-6 mb-5 mb-lg-0 d-flex justify-content-center">
           <div className="card" style={{background:"var(--cardGrn)"}}>
             <div className="card-body py-5 px-md-5" style={{background:"var(--cardGrn)"}}>
               <form>

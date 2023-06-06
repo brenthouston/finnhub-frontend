@@ -233,7 +233,7 @@ findUser(username)
           <h1 style={{fontSize:"2.5rem", textAlign:"center", marginLeft:0, margin:"25px"}}>Watchlists</h1>
           {props.username === username && <button onClick={refreshWatchlist} type="button" className="btn"style={{background: "#65293d",color: "#d8d1bc",padding: "0", width:"8rem", alignSelf:"center"}}>Update watchlist data</button>}
           {stocks.map((stock, i ) =>{
-          return <Watchlist key = {i} username = {props.username} day_change = {stock.day_change} price = {stock.price} tickerName = {stock.ticker} stockID = {stock._id} userID = {userID} setStocks = {setStocks} currentList = {stocks}/> 
+          return <Watchlist key = {i} currentUser = {username} username = {props.username} day_change = {stock.day_change} price = {stock.price} tickerName = {stock.ticker} stockID = {stock._id} userID = {userID} setStocks = {setStocks} currentList = {stocks}/> 
          })}
         </div>
       </div>

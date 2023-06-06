@@ -7,7 +7,7 @@ import {io} from 'socket.io-client'
 
 export default function ChatHub(props) {
   const socket = props.useSocket
-  const [roomList, setRoomList] = useState(['room1', 'room2','room3'])
+  const [roomList, setRoomList] = useState(['calls', 'puts','options'])
   const [roomName, setRoomName] = useState('')
   
   useEffect(() => {
@@ -34,8 +34,14 @@ export default function ChatHub(props) {
     e.preventDefault()
     // const addNewRoom = [...roomList, roomName]
     // setRoomList(addNewRoom)
-    socket.emit('create-new-room',roomName)
-    setRoomName('')
+    if(roomName != ''){
+      const newRoom = roomName.split(' ').join('-')
+      console.log(newRoom)
+      socket.emit('create-new-room',newRoom)
+      setRoomName('')
+    }else{
+      alert('please enter a room name')
+    }
   }
 
   return (
