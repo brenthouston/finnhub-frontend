@@ -2,11 +2,15 @@ import React,{useState} from "react";
 import "./style.css";
 import axios from 'axios'
 import API from '../../utils/API'
+import Error from '../../Components/Error'
 const URL = 'http://localhost:3001'
+
 
 
 export default function Home() {
   const [userSearch, setUserSearch] = useState('')
+  const [show, setShow] = useState(false);
+  const [errorMsg, setErrMsg] = useState('')
 
   function handleChange(e){
     if(e.target.name === 'userSearch'){
@@ -26,8 +30,8 @@ export default function Home() {
       }
       console.log(response);
     } catch (error) {
-      console.log('no user was found on that search')
-      alert('No user found with that username ')
+      setShow(true)
+      setErrMsg('No user found with that username')
       console.error(error);
     }
     setUserSearch('')
@@ -75,6 +79,7 @@ export default function Home() {
         </aside>
       </div>
       <p style={{color: "#7f7c3d", fontSize: "14px"}}>Disclaimer: Trading in equities is risky. Information provided on this website does not constitute investment advice. There is no guarantee of profits and we will not be responsible for any losses incurred or decisions made based on the information provided here. Past performance is not an indicator of future returns. </p>
+      <Error errorMsg = {errorMsg} show = {show} setShow = {setShow}/>
     </div>
   );
 }

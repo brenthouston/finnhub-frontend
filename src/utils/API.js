@@ -39,7 +39,7 @@ const API = {
         return response
         }
         catch(err){
-            throw new Error("falied login");
+            throw new Error("failed login");
 
         }
     },
@@ -54,7 +54,7 @@ const API = {
         return response
         }
         catch(err){
-            throw new Error("falied login");
+            throw new Error("failed signup");
 
         }
     },
@@ -67,7 +67,7 @@ const API = {
         return response
         }
         catch(err){
-            throw new Error("falied login");
+            throw new Error("something went wrong");
 
         }
     },
@@ -81,7 +81,7 @@ const API = {
         return response
         }
         catch(err){
-            throw new Error("falied login");
+            throw new Error("something went wrong");
 
         }
     },
@@ -99,7 +99,7 @@ const API = {
         return response
         }
         catch(err){
-            throw new Error("falied login");
+            throw new Error("stock not created");
 
         }
     },
