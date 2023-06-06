@@ -5,7 +5,8 @@ import Watchlist from "../../Components/Watchlist";
 import API from "../../utils/API"
 import BioForm from "../../Components/BioForm";
 import TickSearch from "../../utils/TickSearch";
-const URL = 'http://localhost:3001'
+import Error from '../../Components/Error'
+// const URL = 'http://localhost:3001'
 
 const ianAPIKey = '9FGEWT5F3EERGO89'
 
@@ -19,11 +20,15 @@ const [investType, setInvestType] = useState('')
 const [stocks, setStocks] = useState([])
 const [profilePic,setProfilePic] = useState('')
 const [favStock,setFavStock] = useState('')
+const [userSearch, setUserSearch] = useState('')
 let url 
 
 const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
+
+const [errorMsg, setErrMsg] = useState('')
+const [errShow, setErrShow] = useState(false);
 
 
 const [name, setName]= useState('')
@@ -123,8 +128,29 @@ async function refreshWatchlist(){
   for (let i = 0; i < stocks.length; i++) {
     const element = stocks[i].ticker;
     searchTicker(element)
-    findUser(username)
     
+  }
+  // findUser(username)
+}
+async function handleUserSearch(e){
+  e.preventDefault()
+  try {
+    const response = await API.getUserByName(userSearch);
+    if(response.status ===200){
+      console.log('it was successful search')
+      window.location.href = `/profile/${userSearch}`
+    }
+    console.log(response);
+  } catch (error) {
+    setErrShow(true)
+    setErrMsg('No user found with that username')
+    console.error(error);
+  }
+  setUserSearch('')
+}
+function handleChange(e){
+  if(e.target.name === 'userSearch'){
+    setUserSearch(e.target.value)
   }
 }
 
@@ -146,15 +172,19 @@ findUser(username)
         <form className="col-3">
           <div className="form-group">
             <p style={{ color: "#7f7c3d", fontSize: "22px" }}>
-              Search for Ticker
+              Search for Users
             </p>
             <input
+            onChange = {handleChange} 
+            name = 'userSearch' 
+            value={userSearch}
               type="text"
               className="form-control"
               placeholder="Username"
             ></input>
             <button
               type="button"
+              onClick={handleUserSearch}
               className="btn"
               style={{
                 background: "#65293d",
@@ -208,6 +238,7 @@ findUser(username)
         </div>
       </div>
         <BioForm username = {props.username} setInvestType = {setInvestType} setFavStock = {setFavStock} setDesc = {setDesc} desc = {desc} fav = {favStock} itype = {investType} show = {show} setShow = {setShow} handleClose = {handleClose} handleShow = {handleShow}> </BioForm>
+        <Error errorMsg = {errorMsg} show = {errShow} setShow = {setErrShow}/>
     </div>
   );
 }

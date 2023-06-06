@@ -1,6 +1,7 @@
 import TickSearch from '../../utils/TickSearch'
 import API from '../../utils/API'
 import "./style.css";
+import Error from '../../Components/Error'
 import { useState } from "react";
 import Chart from "react-apexcharts";
 import ChartAPI from '../../utils/ChartAPI'
@@ -19,6 +20,9 @@ const TickerSearch = (props) => {
   const [day_open, setDay_open]= useState('')
   const [day_change, setDay_change]= useState('')
   const [volume, setVolume]= useState('')
+  const [show, setShow] = useState(false);
+  const [errorMsg, setErrMsg] = useState('')
+
   
   
   
@@ -39,7 +43,8 @@ async function searchTicker (query){
       console.log('price',price)
       createOrupdate(search,response.data.data[0].price,response.data.data[0].day_high,response.data.data[0].day_low,response.data.data[0].day_open,response.data.data[0].day_change,response.data.data[0].volume)
     }else{
-      alert('That was not a valid stock')
+      setShow(true)
+      setErrMsg('Not a valid stock')
       setSearch('')
       return
     }  
@@ -91,7 +96,8 @@ const handleInputChange = event =>{
    if(search != ''){
      searchTicker(search)
    }else{
-    alert('please enter a stock')
+    setShow(true)
+    setErrMsg('Please enter a stock')
    }
   }
 
@@ -103,7 +109,8 @@ const handleInputChange = event =>{
         const stockId = response.data._id
         const addStock = await API.addStock(props.userId,stockId )
       }else{
-        alert('please search for a stock first')
+        setShow(true)
+        setErrMsg('Please search for a stock first')
       }
       
     }catch(err){
@@ -476,6 +483,7 @@ const handleInputChange = event =>{
         </div>
       </div>
       <p style={{color: "#7f7c3d", fontSize: "14px"}}>Disclaimer: Trading in equities is risky. Information provided on this website does not constitute investment advice. There is no guarantee of profits and we will not be responsible for any losses incurred or decisions made based on the information provided here. Past performance is not an indicator of future returns. Take trading advice at your own risk. </p>
+      <Error errorMsg = {errorMsg} show = {show} setShow = {setShow}/>
     </div>
   );
 }
