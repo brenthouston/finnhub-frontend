@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import ChatRoom from './pages/ChatRoom';
 import ChatHub from './pages/ChatHub';
 import NavTabs from './Components/NavTabs/index';
@@ -14,8 +15,8 @@ import Signals from "./pages/Signals";
 import {useState,useEffect} from 'react'
 import API from './utils/API.js'
 
-// const URL = 'http://localhost:3001'
-const URL = 'https://finhub.herokuapp.com/'
+const URL = 'http://localhost:3001'
+// const URL = 'https://finhub.herokuapp.com/'
 
 const socket = io(URL)
 const bg =background
@@ -49,6 +50,8 @@ function App() {
     localStorage.removeItem("token")
       setToken(null);
       setUsername(null);
+      window.location.href = `/login`
+
   }
   
   return (
