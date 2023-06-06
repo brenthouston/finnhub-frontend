@@ -85,10 +85,16 @@ const API = {
 
         }
     },
-    createStock:async (stock)=>{
+    createStock:async (stock,price,high,low,open,day_change,volume)=>{
         try{
          const response = await axios.post(`${URL_PREFIX}/api/stocks/`,{
-            ticker:stock
+            ticker:stock,
+            price:price,
+            high:high,
+            low:low,
+            open:open,
+            day_change:day_change,
+            volume:volume,
          })
         return response
         }
@@ -119,6 +125,23 @@ const API = {
 
         }
     },
+    updateStock:async (stock,price,high,low,open,day_change,volume)=>{
+        try{
+         const response = await axios.put(`${URL_PREFIX}/api/stocks/ticker/${stock}`,{
+            price:price,
+            high:high,
+            low:low,
+            open:open,
+            day_change:day_change,
+            volume:volume,
+         })
+        return response
+        }
+        catch(err){
+            throw new Error("failed to update the stock");
+
+        }
+    }
   }
 
 
