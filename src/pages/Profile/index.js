@@ -4,6 +4,7 @@ import axios from 'axios'
 import Watchlist from "../../Components/Watchlist";
 import API from "../../utils/API"
 import BioForm from "../../Components/BioForm";
+import TickSearch from "../../utils/TickSearch";
 const URL = 'http://localhost:3001'
 
 const ianAPIKey = '9FGEWT5F3EERGO89'
@@ -24,6 +25,56 @@ const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 
+
+const [name, setName]= useState('')
+const [price, setPrice]= useState('')
+const [day_high, setDay_high]= useState('')
+const [day_low, setDay_low]= useState('')
+const [day_open, setDay_open]= useState('')
+const [day_change, setDay_change]= useState('')
+const [volume, setVolume]= useState('')
+
+
+
+
+async function searchTicker (query){
+try{
+  const response = await TickSearch.search(query)
+  console.log('reponse', response)
+  if(response.data.data.length !=0){
+    setName(response.data.data[0].name);
+    setPrice(response.data.data[0].price);
+    setDay_high(response.data.data[0].day_high);
+    setDay_low(response.data.data[0].day_low);
+    setDay_open(response.data.data[0].day_open);
+    setDay_change(response.data.data[0].day_change);
+    setVolume(response.data.data[0].volume);
+    console.log('price',price)
+    createOrupdate(query,response.data.data[0].price,response.data.data[0].day_high,response.data.data[0].day_low,response.data.data[0].day_open,response.data.data[0].day_change,response.data.data[0].volume)
+  }else{
+    alert('That was not a valid stock')
+    return
+  }  
+}catch(err){
+  console.log(err)
+}
+
+}
+async function createOrupdate(sr,p,dh,dl,d_o,c,v){
+try{
+  const response = await API.findStockTicker(sr)
+  console.log('already in the database')
+  const updatedStock = await API.updateStock(sr,p,dh,dl,d_o,c,v)
+  console.log('updated stock response',updatedStock)
+}catch(err){
+  if(err.toString() === 'Error: That stock wasnt in the database'){
+    const createdStock = await API.createStock(sr,p,dh,dl,d_o,c,v)
+  }
+  console.log(err)
+}
+
+}
+
 var myWidget = window.cloudinary.createUploadWidget(
   {
     cloudName: 'dykifpnqi',
@@ -42,11 +93,13 @@ var myWidget = window.cloudinary.createUploadWidget(
 async function uploadAPI(url){
   const response = await API.updateProfilePic(props.username,url)
   console.log(response)
+  findUser(username)
 
 }  
 function openCloudinary(e){
   e.preventDefault()
   myWidget.open()
+
 }
 
 async function findUser(username){
@@ -66,8 +119,13 @@ async function findUser(username){
     }
 }
 
-async function editBio(){
-
+async function refreshWatchlist(){
+  for (let i = 0; i < stocks.length; i++) {
+    const element = stocks[i].ticker;
+    searchTicker(element)
+    findUser(username)
+    
+  }
 }
 
 useEffect(()=>{
@@ -143,8 +201,9 @@ findUser(username)
       <div className="container.fluid">
         <div className="watchlist my-4">
           <h1 style={{fontSize:"2.5rem", textAlign:"center", marginLeft:0, margin:"25px"}}>Watchlists</h1>
+          {props.username === username && <button onClick={refreshWatchlist} type="button" className="btn"style={{background: "#65293d",color: "#d8d1bc",padding: "0", width:"8rem", alignSelf:"center"}}>Update watchlist data</button>}
           {stocks.map((stock, i ) =>{
-          return <Watchlist key = {i} tickerName = {stock.ticker} stockID = {stock._id} userID = {userID} setStocks = {setStocks} currentList = {stocks}/> 
+          return <Watchlist key = {i} username = {props.username} day_change = {stock.day_change} price = {stock.price} tickerName = {stock.ticker} stockID = {stock._id} userID = {userID} setStocks = {setStocks} currentList = {stocks}/> 
          })}
         </div>
       </div>

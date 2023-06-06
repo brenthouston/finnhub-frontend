@@ -32,16 +32,30 @@ async function searchTicker (query){
       setDay_open(response.data.data[0].day_open);
       setDay_change(response.data.data[0].day_change);
       setVolume(response.data.data[0].volume);
+      console.log('price',price)
+      createOrupdate(search,response.data.data[0].price,response.data.data[0].day_high,response.data.data[0].day_low,response.data.data[0].day_open,response.data.data[0].day_change,response.data.data[0].volume)
     }else{
       alert('That was not a valid stock')
       setSearch('')
-    }
-   
-
+      return
+    }  
   }catch(err){
     console.log(err)
   }
   
+}
+async function createOrupdate(sr,p,dh,dl,d_o,c,v){
+  try{
+    const response = await API.findStockTicker(sr)
+    console.log('already in the database')
+    const updatedStock = await API.updateStock(sr,p,dh,dl,d_o,c,v)
+    console.log('updated stock response',updatedStock)
+  }catch(err){
+    if(err.toString() === 'Error: That stock wasnt in the database'){
+      const createdStock = await API.createStock(search,p,dh,dl,d_o,c,v)
+    }
+    console.log(err)
+  }
 
 }
 
@@ -49,9 +63,8 @@ const handleInputChange = event =>{
    setSearch(event.target.value.toUpperCase())
 }
 
-  const handleButton =(event)=>{
+  function handleButton(event){
     event.preventDefault();
-   console.log('search',search)
    if(search != ''){
      searchTicker(search)
    }else{
@@ -71,11 +84,6 @@ const handleInputChange = event =>{
       }
       
     }catch(err){
-      if(err.toString() === 'Error: That stock wasnt in the database'){
-        const createdStock = await API.createStock(search)
-        const newStockId = createdStock.data._id
-        const addNewStock = await API.addStock(props.userId,newStockId)
-      }
       console.log(err)
     }
   }
