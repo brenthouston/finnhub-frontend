@@ -10,7 +10,7 @@ function NavTabs(props) {
   return (
     <div className="nav container-fluid ">
       <h4 className="logo">FinHub</h4>
-      <ul className="links col d-flex justify-content-end">
+      <ul className="links col d-flex flex-wrap justify-content-end">
         <li className="nav-item px-4 mt-4">
           <Link
             className={

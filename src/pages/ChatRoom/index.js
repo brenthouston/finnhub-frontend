@@ -8,6 +8,8 @@ import Message from '../../Components/Message'
 
 
 export default function ChatRoom(props) {
+  let roomName = window.location.pathname.split('/')[2]
+  roomName = roomName.split('-').join(' ')
   console.log('username prop', props.username)
   const socket = props.useSocket
   const [sentMessage, setSentMessage] = useState('')
@@ -51,7 +53,7 @@ function addMessage(newMessage) {
 
   return (
     <main className="ChatRoom">
-         <h1>This is a chat room!</h1>
+         <h1>Welcome to {roomName}!</h1>
          {messageList.map((msg, i ) =>{
           return <Message key = {i} sender = {msg.sender} message = {msg.message}/> 
          })}
