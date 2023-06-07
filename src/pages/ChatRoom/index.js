@@ -58,8 +58,8 @@ function addMessage(newMessage) {
           return <Message key = {i} sender = {msg.sender} message = {msg.message}/> 
          })}
          <form onSubmit = {handleSubmit}> 
-         <input name="msg"  onChange={handleChange} value={sentMessage} placeholder='enter in a message'/>
-         <button>send message</button> 
+         <input name="msg" style={{borderRadius:'4px',border:"none"}} onChange={handleChange} value={sentMessage} placeholder='Enter in a message'/>
+         <button id="sendBtn">send message</button> 
          </form>
         
     </main>

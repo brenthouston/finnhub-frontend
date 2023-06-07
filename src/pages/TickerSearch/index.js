@@ -23,7 +23,7 @@ const TickerSearch = (props) => {
     try {
       const response = await TickSearch.search(query);
 
-      console.log("reponse", response);
+ 
       if (response.data.data.length != 0) {
         setName(response.data.data[0].name);
         setPrice(response.data.data[0].price);
@@ -32,7 +32,7 @@ const TickerSearch = (props) => {
         setDay_open(response.data.data[0].day_open);
         setDay_change(response.data.data[0].day_change);
         setVolume(response.data.data[0].volume);
-        console.log("price", price);
+       
         createOrupdate(
           search,
           response.data.data[0].price,
@@ -76,7 +76,7 @@ const TickerSearch = (props) => {
 
         setSeries((prevState) => [...prevState, myPrices]);
 
-        console.log("timeStamps:", myPrices);
+       
       });
     } catch (error) {
       console.log(error);
@@ -139,13 +139,24 @@ const TickerSearch = (props) => {
         data: [],
       },
     ],
+    plotOptions: {
+      candlestick: {
+        colors: {
+          upward: '#253f30',
+          downward: '#65293d'
+        },
+        wick: {
+          useFillColor: true,
+        }
+      }
+    },
     options: {
       chart: {
         type: "candlestick",
         height: 350,
       },
       title: {
-        text: "CandleStick Chart",
+        text: "CandleStick Chart (DAILY)",
         align: "left",
       },
       xaxis: {
@@ -157,6 +168,8 @@ const TickerSearch = (props) => {
         },
       },
     },
+  
+    
   };
 
   return (
@@ -220,6 +233,7 @@ const TickerSearch = (props) => {
                   type="candlestick"
                   width="100%"
                   height="320px"
+                  
                 />
               </div>
             </div>
