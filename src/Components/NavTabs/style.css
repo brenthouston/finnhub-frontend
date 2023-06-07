@@ -64,12 +64,12 @@ ul{
 }
 
 .active {
-    color:#65293d !important;
+    color:var(--accentPlumLG) !important;
 }
 
 .nav-link {
     color: #7f7c3d;
 }
 .nav-link:hover {
-    color:#65293d !important
+    color:var(--accentPlumLG) !important
 }
