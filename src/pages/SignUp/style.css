@@ -38,3 +38,11 @@ font-style: normal; */
     --accentPlum: #65293d;
  }
 
+ .loginClick{
+    color: var(--primary)
+ }
+
+
+.loginClick:hover{
+    color:var(--accentPlumLG)
+}

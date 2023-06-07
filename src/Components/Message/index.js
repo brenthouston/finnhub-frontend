@@ -4,7 +4,7 @@ export default function Message(props) {
   
   return (
     <div className="Message">
-        <p>{props.sender}: {props.message}</p>
+        <p style={{background: "var(--cardGrn)", height: "2rem", display:"inline-block", padding:"8px", boxShadow:}} >{props.sender}: {props.message}</p>
     </div>
   )
 }

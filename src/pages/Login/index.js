@@ -2,8 +2,9 @@ import React, {useState,useEffect} from "react";
 import "./style.css";
 import axios from 'axios'
 import API from '../../utils/API'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Error from '../../Components/Error'
+
 
 
 export default function Login(props) {
@@ -137,6 +138,9 @@ export default function Login(props) {
                 </button>
               </div>
             </form>
+            <div className="d-flex justify-content-center"><Link  className="loginClick" to={'/'}>{'Click here to sign up!'}</Link>
+            </div>
+            
           </div>
         </div>
       </div>

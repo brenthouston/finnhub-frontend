@@ -1,0 +1,11 @@
+#sendBtn{
+    background: var(--accentPlum);
+    color: var(--accentLight);
+    display: flex;
+    padding: "0";
+    border-style: none;
+    font-weight: normal;
+    height: 2rem;
+    width: 8rem;
+    
+}

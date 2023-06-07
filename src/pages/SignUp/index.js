@@ -85,7 +85,7 @@ export default function SignUp(props) {
                   Sign up
                 </button>
                 </div>
-                <Link  to={'/login'}>{'Already have an account login here'}</Link>
+                <Link className="loginClick" to={'/login'}>{'Already have an account login here'}</Link>
                
            
               </form>
