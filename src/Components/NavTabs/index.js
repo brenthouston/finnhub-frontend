@@ -22,22 +22,14 @@ function NavTabs(props) {
             Home
           </Link>
         </li>
-        <li className="nav-item px-4 mt-4">
-          {props.username &&<Link
-            className={
-              currentPage === "profile" ? "nav-link active" : "nav-link"
-            }
-            onClick={()=>setCurrentPage("profile")}
-            to={`/profile/${props.username}`}
-          >
-            Profile
-          </Link>}
-        </li>
-        <li className="nav-item px-4 mt-4">
+       {props.username && <li className="nav-item px-4 mt-4">
+          {props.username &&<Link className={currentPage === "profile" ? "nav-link active" : "nav-link"}onClick={()=>setCurrentPage("profile")}to={`/profile/${props.username}`}>Profile</Link>}
+        </li>}
+        {props.username &&<li className="nav-item px-4 mt-4">
           {props.username && <Link className={currentPage === "chathub" ? "nav-link active" : "nav-link" }onClick={()=>setCurrentPage("chathub")} to="/chathub">
             ChatHub
           </Link>}
-        </li>
+        </li>}
         <li className="nav-item px-4 mt-4">
           <Link
             className={
