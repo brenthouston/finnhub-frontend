@@ -121,12 +121,23 @@ export default function Profile(props) {
     } catch (error) {
       console.error(error);
     }
-  }
+}
 
-  async function refreshWatchlist() {
-    for (let i = 0; i < stocks.length; i++) {
-      const element = stocks[i].ticker;
-      searchTicker(element);
+async function refreshWatchlist(){
+  for (let i = 0; i < stocks.length; i++) {
+    const element = stocks[i].ticker;
+    await searchTicker(element)
+    
+  }
+  findUser(username)
+}
+async function handleUserSearch(e){
+  e.preventDefault()
+  try {
+    const response = await API.getUserByName(userSearch);
+    if(response.status ===200){
+      console.log('it was successful search')
+      window.location.href = `/profile/${userSearch}`
     }
     // findUser(username)
   }

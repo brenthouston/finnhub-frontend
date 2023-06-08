@@ -15,17 +15,18 @@ export default function ChatHub(props) {
   const [errorMsg, setErrMsg] = useState("");
 
   useEffect(() => {
-    socket.on("update-room-list", (data) => {
-      setRoomList((state) => [...state, data]);
-    });
+    // socket.on("update-room-list", (data) => {
+    //   setRoomList((state) => [...state, data]);
+    // });
 
-    socket.on("populate-rooms", (data) => {
-      setRoomList(data);
-    });
+    // socket.on("populate-rooms", (data) => {
+    //   setRoomList(data);
+    // });
 
     socket.emit("send-room-list");
 
     socket.on("here-are-the-rooms", (data) => {
+      console.log(data)
       setRoomList(data);
     });
     console.log("the use effect fired");
@@ -36,6 +37,10 @@ export default function ChatHub(props) {
       setRoomName(e.target.value);
     }
   }
+
+  function updateRooms(){
+    socket.emit('send-room-list')
+  }
   function handleSubmit(e) {
     e.preventDefault();
     // const addNewRoom = [...roomList, roomName]
@@ -44,6 +49,7 @@ export default function ChatHub(props) {
       const newRoom = roomName.split(" ").join("-");
       console.log(newRoom);
       socket.emit("create-new-room", newRoom);
+      socket.emit('send-room-list')
       setRoomName("");
     } else {
       setShow(true);
