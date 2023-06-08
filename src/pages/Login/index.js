@@ -66,7 +66,7 @@ export default function Login(props) {
           >
             <form>
               {/* <!-- 2 column grid layout with text inputs for the first and last names --> */}
-              <div className="row">
+              <div className="row1">
                 <div className="col-md-6 mb-4">
                   <div className="form-outline">
                     <input
