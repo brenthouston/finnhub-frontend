@@ -131,16 +131,16 @@ async function refreshWatchlist(){
   }
   findUser(username)
 }
-async function handleUserSearch(e){
-  e.preventDefault()
-  try {
-    const response = await API.getUserByName(userSearch);
-    if(response.status ===200){
-      console.log('it was successful search')
-      window.location.href = `/profile/${userSearch}`
-    }
-    // findUser(username)
-  }
+// async function handleUserSearch(e){
+//   e.preventDefault()
+//   try {
+//     const response = await API.getUserByName(userSearch);
+//     if(response.status ===200){
+//       console.log('it was successful search')
+//       window.location.href = `/profile/${userSearch}`
+//     }
+//     // findUser(username)
+//   }
   async function handleUserSearch(e) {
     e.preventDefault();
     try {

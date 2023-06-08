@@ -35,7 +35,7 @@ export default function Signals() {
       </div>
        <div className="row">
         {results.slice(1,10).map((result, index) => (
-          <div className="col-4 p-3" key={index}>
+          <div className="col-lg-4 col-md-6 col-sm-12 p-3" key={index}>
             {result.title && (
               <Card heading={result.title}>
                 <CardDetail
