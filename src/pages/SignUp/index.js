@@ -58,7 +58,7 @@ export default function SignUp(props) {
             <div className="card-body py-5 px-md-5" style={{background:"var(--cardGrn)"}}>
               <form>
                 {/* <!-- 2 column grid layout with text inputs for the first and last names --> */}
-                <div className="row">
+                <div className="row1">
                   <div className="col-md-6 mb-4">
                     <div className="form-outline">
                       <input name = 'username' value = {username} onChange = {handleChange} type="text" id="form3Example1" className="form-control" />
