@@ -1,6 +1,8 @@
 .watchlist{
-    height: 440px;
-    /* height: auto; */
+    /* height: 440px; */
+    height: auto;
+    /* margin-bottom: 30px; */
+    padding: 50px;
     width: 100%;
     background-color: var(--cardGrn);
     border-radius: 7px;
@@ -13,7 +15,7 @@
     font-weight: 100;
     font-style: normal;
     align-items: center;
-    margin: 15px;
+   
     padding:5px;
 }
 .percent_change_pos{
@@ -21,7 +23,7 @@
     font-weight: 100;
     font-style: normal;
     align-items:center;
-    margin: 15px;
+   
     padding:5px;
     color:green;
 }
@@ -30,14 +32,14 @@
     font-weight: 100;
     font-style: normal;
     align-items:center;
-    margin: 15px;
+   
     padding:5px;
     color:red;
 }
 .ticker{
    width: 20rem;
     color: var(--primary);
-    margin: 15px;
+   
     border-radius: 3px; 
     padding:5px;
 }

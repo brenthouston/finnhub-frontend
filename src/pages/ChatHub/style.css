@@ -26,3 +26,8 @@
 .join:hover{
     color: var(--accentPlumLG)
 }
+@media (max-width:760px){
+    .roomInput{
+        width:8rem !important;
+    }
+}
