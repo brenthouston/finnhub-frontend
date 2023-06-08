@@ -39,11 +39,11 @@ export default function Home() {
 
   return (
     <div className="container home">
-      <div className="row">
+      <div className="row row-sm-12">
         <section className="col m-5">
-          <h1 style={{fontWeight:"lighter" }}>Dashboard</h1>
+          <h1 style={{fontWeight:"lighter"}}>Dashboard</h1>
           <h3>What is FinHub?</h3>
-          <div className="container w_card">
+          <div className="container w_card card">
             <p style={{ padding: '25px 20px 0 20px'}}>
               <strong>Welcome to FinHub</strong>, where finance meets community.
               Whether you're a seasoned trader or just starting your journey,
