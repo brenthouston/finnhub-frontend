@@ -52,10 +52,7 @@ button{
     color:var(--accentLight);
 }
 
-.bio{
-   
-    background-color: var(--cardGrn);
-}
+
 
 .username,
 .email,
@@ -67,6 +64,10 @@ button{
     font-weight: 400;
     font-style: normal;
 }
+
+
+
+
 
 @media (max-width: 760px){
     .picBtn{
@@ -80,14 +81,16 @@ button{
     }
 }
 
-/* .watchlist{
+
+.watchlist{
     height: 440px;
     width: 100%;
     background-color: var(--cardGrn);
     border-radius: 7px;
+    padding: 5px;
     
 }
-
+/* 
 .price,
 .percent_change{
     font-family: "basic-sans", sans-serif;

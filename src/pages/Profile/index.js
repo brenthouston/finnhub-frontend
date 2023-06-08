@@ -219,7 +219,8 @@ async function refreshWatchlist(){
                 borderRadius: "120px",
                 padding: "15px",
                 justifyContent:"center",
-                alignItems:"center"
+                alignItems:"center",
+                
               }}
               src={profilePic}
             />
@@ -241,7 +242,7 @@ async function refreshWatchlist(){
                     alignItems:"center"
                   }}
                 >
-                  Edit photo
+                  Edit Photo
                 </button>
               )}
               </div>
@@ -253,7 +254,11 @@ async function refreshWatchlist(){
           <div className="col bio m-3" style={{padding:"30px"}}>
             <h1 style={{ fontSize: "3rem" }}>Bio</h1>
             <hr style={{color:"var(--accentLight)"}}></hr>
-            <div className="">
+
+                    {/* BIO DEETS */}
+            <div className="container">
+              <div className="row">
+                <div className="col">
               <ul>
                 <li style={{ fontSize: "18px" }} className="username">
                   Username: <h2>{username}</h2>
@@ -261,44 +266,68 @@ async function refreshWatchlist(){
                 <li style={{ fontSize: "18px" }} className="email">
                   Email: {email}
                 </li>
+                </ul> 
+                </div>
+                <div className="col ">
+                <ul>
+                  <div>
                 <li style={{ fontSize: "18px" }} className="invest-type">
-                  Type of investor:{" "}
+                  Type of investor: <h3 style={{ fontSize: "19px"}}>{" "}</h3>
                   <h3 style={{ fontSize: "19px" }}>{investType}</h3>
                 </li>
+                </div>
                 <li style={{ fontSize: "18px" }} className="invest-type">
                   Favorite Stock: <h3 style={{ fontSize: "20px" }}></h3>
                   {favStock}
                 </li>
               </ul>
-              <p
+              </div>
+                    <hr></hr>
+              </div>
+              <div className="row d-flex">
+                  <ul className="text-center mt-4">
+              <li
                 style={{
-                  fontSize: "21px",
-                  color: "var(--accentDark)",
                   fontFamily: "basic-sans, sans-serif",
                   fontWeight: "400",
                   fontStyle: "normal",
+                  listStyleType: "none",
+                  marginLeft: "80px",
+                  fontSize: "1.5rem"
+                  
                 }}
-              >
+                >
                 About me
-              </p>
-
-              <p style={{ padding: "30px" }}>{desc}</p>
+              </li>
+              </ul>
+                  <div className="about" style={{ background: "var(--cardGrn)", borderRadius:"4px", marginBottom:"10px", fontFamily: "basic-sans, sans-serif",
+                  fontWeight: "400",
+                  fontStyle: "normal",
+                  listStyleType: "none",
+                  color:"var(--primary)", 
+                  padding: "20px"
+                   }}>
+              <li>{desc}</li>
+              </div>
               {props.username === username && (
                 <button
-                  onClick={handleShow}
-                  type="button"
-                  className="btn"
-                  style={{
-                    background: "#65293d",
-                    color: "#d8d1bc",
-                    padding: "0",
-                    width: "8rem",
-                    alignSelf: "center",
-                  }}
+                onClick={handleShow}
+                type="button"
+                className="btn"
+                style={{
+                  background: "#65293d",
+                  color: "var(--accentLight)",
+                  padding: "0",
+                  width: "8rem",
+                  height: "27px",
+                  alignItem: "center",
+                  justifyContent: "center"
+                }}
                 >
                   Edit Bio
                 </button>
               )}
+              </div>
             </div>
           </div>
         </div>
@@ -311,27 +340,30 @@ async function refreshWatchlist(){
               fontSize: "2.5rem",
               textAlign: "center",
               marginLeft: 0,
-              margin: "25px",
+             padding: "20px",
+              background:"var(--bgGrn)"
             }}
           >
             Watchlist:
           </h2>
-          {props.username === username && (
+          <div className="d-flex justify-content-end">  {props.username === username && (
             <button
               onClick={refreshWatchlist}
               type="button"
               className="btn"
               style={{
                 background: "#65293d",
-                color: "#d8d1bc",
-                padding: "0",
-                width: "8rem",
+                color: "var(--accentLight)",
+                padding: "4px",
+                margin:"20px",
+                width: "9rem",
                 alignSelf: "center",
               }}
             >
-              Update watchlist data
+              Update Watchlist
             </button>
-          )}
+          )}</div>
+        
           {stocks.map((stock, i) => {
             return (
               <Watchlist
