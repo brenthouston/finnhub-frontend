@@ -58,8 +58,8 @@ export default function ChatHub(props) {
   }
 
   return (
-    <main className="ChatHub">
-      <h1>This is the chathub </h1>
+    <main className="container ChatHub">
+      <h1>Welcome to the ChatHub!</h1>
       <div className="container pageContent">
         <div className="col chatCard d-flex flex-column m-3">
           <h2
@@ -73,7 +73,7 @@ export default function ChatHub(props) {
           </h2>
           <div>
             <form onSubmit={handleSubmit}>
-              <input
+              <input className = 'roomInput'
                 name="createRoom"
                 onChange={handleChange}
                 value={roomName}

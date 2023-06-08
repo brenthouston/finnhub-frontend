@@ -272,7 +272,7 @@ async function refreshWatchlist(){
                 <ul>
                   <div>
                 <li style={{ fontSize: "18px" }} className="invest-type">
-                  Type of investor: <h3 style={{ fontSize: "19px"}}>{" "}</h3>
+                  Type of investor:  <h3 style={{ fontSize: "19px"}}>{" "}</h3>
                   <h3 style={{ fontSize: "19px" }}>{investType}</h3>
                 </li>
                 </div>

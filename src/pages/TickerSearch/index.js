@@ -253,7 +253,7 @@ const TickerSearch = (props) => {
             </h1>
 
             <div
-              className="row "
+              className="row"
               style={{ padding: "0", marginTop: "0", marginRight: "0" }}
             >
               <div className="col ">
