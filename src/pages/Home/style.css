@@ -43,7 +43,7 @@ h1{
     font-weight: lighter;
     margin-left: 10rem
 }
-h3{
+.home > h3{
     color: var(--primary);
     font-family: "basic-sans", sans-serif;
     font-weight: 400;
@@ -51,6 +51,17 @@ h3{
     margin-left:10.25rem;
     margin-top:-10px;
     font-size: 2.5rem;
+    
+    
+}
+h3{
+    color: var(--primary);
+    font-family: "basic-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /* margin-left:10.25rem;
+    margin-top:-10px;
+    font-size: 2.5rem; */
     
     
 }

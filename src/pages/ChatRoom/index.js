@@ -53,7 +53,7 @@ export default function ChatRoom(props) {
   }
 
   return (
-    <main className="ChatRoom">
+    <main className="container ChatRoom">
       <h1>Welcome to {roomName}!</h1>
       <div className="container chatRm">
         <div className="messages">
