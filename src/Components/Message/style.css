@@ -1,3 +1,18 @@
-.Message > p{
-    color: white;
+
+
+.Message span{
+background-color: rgb(25, 44, 24);
+padding: 6px;
+color: #e4decb;
+border-radius:10px;
+
 }
+
+.Message p{
+    color: var(--primary);
+    font-family: "basic-sans", sans-serif;
+font-weight: 100;
+font-style: normal;
+}
+
+/* style={{background: "var(--primary)", height: "2rem",color:"var(--cardGrn)",borderRadius:"5px", display: 'flex', alignItems: "center", shadowColor: "var(--bgGrn)", shadowRadius:"20px"}} */

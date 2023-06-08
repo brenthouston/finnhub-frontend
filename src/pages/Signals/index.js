@@ -34,8 +34,8 @@ export default function Signals() {
         <h3>Market News and Sentiment</h3>
       </div>
        <div className="row">
-        {results.slice(0,9).map((result, index) => (
-          <div className="col-4 p-3" key={index}>
+        {results.slice(1,10).map((result, index) => (
+          <div className="col-lg-4 col-md-6 col-sm-12 p-3" key={index}>
             {result.title && (
               <Card heading={result.title}>
                 <CardDetail

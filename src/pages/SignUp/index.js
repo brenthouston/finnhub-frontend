@@ -53,12 +53,12 @@ export default function SignUp(props) {
           Welcome to FinHub!
         </h3></div>
       
-      <div className="container col-lg-6 mb-5 mb-lg-0">
+      <div className="container col-lg-6 mb-5 mb-lg-0 d-flex justify-content-center">
           <div className="card" style={{background:"var(--cardGrn)"}}>
             <div className="card-body py-5 px-md-5" style={{background:"var(--cardGrn)"}}>
               <form>
                 {/* <!-- 2 column grid layout with text inputs for the first and last names --> */}
-                <div className="row">
+                <div className="row1">
                   <div className="col-md-6 mb-4">
                     <div className="form-outline">
                       <input name = 'username' value = {username} onChange = {handleChange} type="text" id="form3Example1" className="form-control" />
@@ -85,7 +85,7 @@ export default function SignUp(props) {
                   Sign up
                 </button>
                 </div>
-                <Link  to={'/login'}>{'Already have an account login here'}</Link>
+                <Link className="loginClick" to={'/login'}>{'Already have an account login here'}</Link>
                
            
               </form>

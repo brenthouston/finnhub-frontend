@@ -2,8 +2,9 @@ import React, {useState,useEffect} from "react";
 import "./style.css";
 import axios from 'axios'
 import API from '../../utils/API'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Error from '../../Components/Error'
+
 
 
 export default function Login(props) {
@@ -57,7 +58,7 @@ export default function Login(props) {
         </h3>
       </div>
 
-      <div className="container col-lg-6 mb-5 mb-lg-0">
+      <div className="container col-lg-6 mb-5 mb-lg-0 d-flex justify-content-center">
         <div className="card" style={{ background: "var(--cardGrn)" }}>
           <div
             className="card-body py-5 px-md-5"
@@ -65,7 +66,7 @@ export default function Login(props) {
           >
             <form>
               {/* <!-- 2 column grid layout with text inputs for the first and last names --> */}
-              <div className="row">
+              <div className="row1">
                 <div className="col-md-6 mb-4">
                   <div className="form-outline">
                     <input
@@ -137,6 +138,9 @@ export default function Login(props) {
                 </button>
               </div>
             </form>
+            <div className="d-flex justify-content-center"><Link  className="loginClick" to={'/'}>{'Click here to sign up!'}</Link>
+            </div>
+            
           </div>
         </div>
       </div>

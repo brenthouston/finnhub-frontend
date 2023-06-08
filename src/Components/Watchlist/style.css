@@ -1,5 +1,8 @@
 .watchlist{
-    height: 440px;
+    /* height: 440px; */
+    height: auto;
+    /* margin-bottom: 30px; */
+    padding: 50px;
     width: 100%;
     background-color: var(--cardGrn);
     border-radius: 7px;
@@ -7,23 +10,20 @@
 }
 
 .price{
+    display: flex;
     font-family: "basic-sans", sans-serif;
     font-weight: 100;
     font-style: normal;
-    height: 2rem;
-    background-color: var(--accentLight);
-    margin: 15px;
-    border-radius: 7px;
+    align-items: center;
+   
     padding:5px;
 }
 .percent_change_pos{
     font-family: "basic-sans", sans-serif;
     font-weight: 100;
     font-style: normal;
-    height: 2rem;
-    background-color: var(--accentLight);
-    margin: 15px;
-    border-radius: 7px;
+    align-items:center;
+   
     padding:5px;
     color:green;
 }
@@ -31,18 +31,19 @@
     font-family: "basic-sans", sans-serif;
     font-weight: 100;
     font-style: normal;
-    height: 2rem;
-    background-color: var(--accentLight);
-    margin: 15px;
-    border-radius: 7px;
+    align-items:center;
+   
     padding:5px;
     color:red;
 }
 .ticker{
-    font-size:18px;
-    height: 2rem;
-    background-color: var(--primary);
-    margin: 15px;
-    border-radius: 7px; 
+   width: 20rem;
+    color: var(--primary);
+   
+    border-radius: 3px; 
     padding:5px;
+}
+.btn.delete{
+  position: relative;
+  top:34px;
 }

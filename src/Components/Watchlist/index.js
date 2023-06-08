@@ -31,12 +31,18 @@ export default function Watchlist(props) {
 
   return (
     <div className="row">
-     <div className="d-flex justify-content-between">
-        <div className="ticker"><h4>{props.tickerName}</h4></div>
-        <div className="price"><h4 className="text-success">${props.price}</h4></div>
-        <div className={props.day_change.includes('-')?"percent_change_neg":"percent_change_pos"}><h4>${props.day_change}</h4></div>
-        {/* <button type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Edit</button> */}
-        {props.username && <button onClick = {dltBtn} id = {props.stockID} type="button" className="btn" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px"}}>Delete</button>}
+      
+     <div className="d-flex justify-content-around">
+        <div className="ticker"><p style={{ fontFamily: "basic-sans, sans-serif", fontWeight:"100", fontSize:"2rem", margin:"0"}}><p >Ticker</p>{props.tickerName}</p>
+        </div>
+        <div className="price"><h4 style={{fontSize: "2rem", color: "var(--primary)"}} > <p>Price</p>${props.price}</h4>
+        </div>
+
+
+        <div className={props.day_change.includes('-')?"percent_change_neg":"percent_change_pos"}><h4 style={{fontSize:"2rem"}}><p>Change</p>{props.day_change}%</h4>
+        </div>
+     
+        {props.username === props.currentUser && <button onClick = {dltBtn} id = {props.stockID} type="button" className="btn delete" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px", height: "38px"}}>Delete</button>}
     </div>
   </div>
   )

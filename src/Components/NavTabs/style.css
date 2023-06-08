@@ -22,15 +22,7 @@ font-style: normal; */
 
 
 
-:root {
-    --bgGrn: #15261c;
-    --cardGrn:#253f30; 
-    --hdBlk:  #0e1812;
-    --primary: #acaa82;
-    --accentLight: #d8d1bc;
-    --accentDark: #7f7c3d;
-    --accentPlum: #65293d;
- }
+
 
 
 body{
@@ -38,6 +30,9 @@ body{
 }
 
 .nav{
+    position: relative;
+    display:flex;
+    flex-wrap: wrap;
     width: 100vw;
     font-size: 1.25rem;
     background-color: var(--hdBlk);
@@ -45,7 +40,7 @@ body{
     font-weight: 100;
     font-style: italic;
     margin-bottom: 25px;
-    margin-left: -25px
+    margin-left: -14px
    
 }
 
@@ -64,9 +59,12 @@ ul{
 }
 
 .active {
-    color:#65293d;
+    color:var(--accentPlumLG) !important;
 }
 
 .nav-link {
-    color: #7f7c3d;
+    color: var(--primary);
+}
+.nav-link:hover {
+    color:var(--accentPlumLG) !important
 }

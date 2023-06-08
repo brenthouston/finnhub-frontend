@@ -18,19 +18,6 @@ font-family: "basic-sans", sans-serif;
 font-weight: 400;
 font-style: normal; */
 
-
-
-
-
-:root {
-    --bgGrn: #15261c;
-    --cardGrn:#253f30; 
-    --hdBlk:  #0e1812;
-    --primary: #acaa82;
-    --accentLight: #d8d1bc;
-    --accentDark: #7f7c3d;
-    --accentPlum: #65293d;
-}
    
 
 input{
@@ -53,11 +40,6 @@ button{
     width: 6rem;
 } 
 
-.picBio{
-    display: flex;
-    
-}
-
 .pic{
     
    
@@ -70,11 +52,7 @@ button{
     color:var(--accentLight);
 }
 
-.bio{
-    height: 300px;
-    width: 100%;
-    background-color: var(--cardGrn);
-}
+
 
 .username,
 .email,
@@ -87,14 +65,32 @@ button{
     font-style: normal;
 }
 
-/* .watchlist{
+
+
+
+
+@media (max-width: 760px){
+    .picBtn{
+        margin-bottom: 40px!important;
+    }
+    .btn.search{
+        width: 4rem;
+    }
+    .form-control{
+        width: 7rem !important;
+    }
+}
+
+
+.watchlist{
     height: 440px;
     width: 100%;
     background-color: var(--cardGrn);
     border-radius: 7px;
+    padding: 5px;
     
 }
-
+/* 
 .price,
 .percent_change{
     font-family: "basic-sans", sans-serif;

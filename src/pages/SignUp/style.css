@@ -28,13 +28,12 @@ font-style: normal; */
 
 
 
-:root {
-    --bgGrn: #15261c;
-    --cardGrn:#253f30; 
-    --hdBlk:  #0e1812;
-    --primary: #acaa82;
-    --accentLight: #d8d1bc;
-    --accentDark: #7f7c3d;
-    --accentPlum: #65293d;
+
+ .loginClick{
+    color: var(--primary)
  }
 
+
+.loginClick:hover{
+    color:var(--accentPlumLG)
+}

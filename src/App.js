@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import ChatRoom from './pages/ChatRoom';
 import ChatHub from './pages/ChatHub';
 import NavTabs from './Components/NavTabs/index';
@@ -36,12 +37,12 @@ function App() {
         setUsername(data.data.username);
         setUserId(data.data._id)
         setIsLoggedIn(true)
+  
       }).catch(err=>{
         console.log("that token couldnt be verified")
         console.log(err)
         logout();
       })
-
     }
   },[])
 
@@ -49,6 +50,8 @@ function App() {
     localStorage.removeItem("token")
       setToken(null);
       setUsername(null);
+      window.location.href = `/login`
+
   }
   
   return (
