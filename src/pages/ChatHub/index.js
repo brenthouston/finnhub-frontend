@@ -54,35 +54,37 @@ export default function ChatHub(props) {
   return (
     <main className="ChatHub">
       <h1>This is the chathub </h1>
-      <div className="container row ">
-        <div className="col m-3 chatCard">
+      <div className="container pageContent">
+        <div className="col chatCard d-flex flex-column m-3">
           <h2
             style={{
               background: "var(--bgGrn)",
               padding: "10px",
               textAlign: "center",
             }}
-          >
+           className="header">
             Create a chatroom:
           </h2>
-          <form onSubmit={handleSubmit}>
-            <input
-              name="createRoom"
-              onChange={handleChange}
-              value={roomName}
-              placeholder="Enter room name"
-            />
-            <button className="chatBtn">Create room</button>
-          </form>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <input
+                name="createRoom"
+                onChange={handleChange}
+                value={roomName}
+                placeholder="Enter room name"
+              />
+              <button className="chatBtn">Create room</button>
+            </form>
+          </div>
         </div>
-        <div className="col m-3 chatCard">
+        <div className="col chatCard d-flex flex-column m-3">
           <h2
             style={{
               background: "var(--bgGrn)",
               padding: "10px",
               textAlign: "center",
             }}
-          >
+          className="header">
             Join a chat:
           </h2>
           {roomList.map((room, i) => {
