@@ -62,7 +62,7 @@ export default function Home() {
         
       </div>
           <div className="user_search">
-            <p style={{color: "#7f7c3d", fontSize: "22px"}}>Search for User</p>
+            <p style={{color: "var(--primary)", fontSize: "22px"}}>Search for User</p>
             <div className="input-group input-group-lg">
             <input onChange = {handleChange} name = 'userSearch' value={userSearch} type="text" placeholder="Username" className="inputgroup-sizing-lg"></input>
             </div>
