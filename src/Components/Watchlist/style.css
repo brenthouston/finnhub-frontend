@@ -1,5 +1,6 @@
 .watchlist{
     height: 440px;
+    /* height: auto; */
     width: 100%;
     background-color: var(--cardGrn);
     border-radius: 7px;
