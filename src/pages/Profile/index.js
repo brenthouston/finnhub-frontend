@@ -127,10 +127,10 @@ async function findUser(username){
 async function refreshWatchlist(){
   for (let i = 0; i < stocks.length; i++) {
     const element = stocks[i].ticker;
-    searchTicker(element)
+    await searchTicker(element)
     
   }
-  // findUser(username)
+  findUser(username)
 }
 async function handleUserSearch(e){
   e.preventDefault()
