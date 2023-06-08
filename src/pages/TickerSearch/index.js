@@ -134,11 +134,6 @@ const TickerSearch = (props) => {
     }
   }
   const chart = {
-    series: [
-      {
-        data: [],
-      },
-    ],
     plotOptions: {
       candlestick: {
         colors: {
@@ -150,6 +145,11 @@ const TickerSearch = (props) => {
         }
       }
     },
+    series: [
+      {
+        data: [],
+      },
+    ],
     options: {
       chart: {
         type: "candlestick",
@@ -300,6 +300,8 @@ const TickerSearch = (props) => {
                   </li>
                 </ul>
               </div>
+                </div>
+              <div className="col d-flex d-flex justify-content-center">
               {props.username && (
                 <button
                   onClick={saveStock}
@@ -309,16 +311,18 @@ const TickerSearch = (props) => {
                     color: "#d8d1bc",
                     display: "flex",
                     padding: "0",
+                    width: '7rem'
                   }}
                 >
                   Save
                 </button>
               )}
-            </div>
+              </div>
           </div>
         </div>
       </div>
-      <p style={{ color: "#7f7c3d", fontSize: "14px" }}>
+      <div className="mt-4">
+      <p style={{ color: "#7f7c3d", fontSize: "14px"}}>
         Disclaimer: Trading in equities is risky. Information provided on this
         website does not constitute investment advice. There is no guarantee of
         profits and we will not be responsible for any losses incurred or
@@ -326,6 +330,7 @@ const TickerSearch = (props) => {
         is not an indicator of future returns. Take trading advice at your own
         risk.{" "}
       </p>
+      </div>
       <Error errorMsg={errorMsg} show={show} setShow={setShow} />
     </div>
   );

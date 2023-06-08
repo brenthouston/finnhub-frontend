@@ -63,12 +63,11 @@ h2{
 .w_card{
     display:flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    width:45rem;
-    height: 15rem;
+    height: auto;
     background-color: var(--cardGrn);
     border-radius: 7px;
-    margin: 20px 0px 0 40px;
+    margin: 20px 0 0 10px;
+   
 }
 
 .user_search, .ticker_search{
@@ -145,35 +144,16 @@ ul{
     font-weight: 400;
     font-style: normal
 }
+
+.user_search{
+   margin-bottom: 20px;
+}
 @media screen and (min-width: 400px) {
-    /* .w_card{
-        display:flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        font-size: clamp(1rem,2.5vw,2rem);
-        width:30rem;
-        height: 25rem;
-        background-color: var(--cardGrn);
-        margin: 0px 0px 0 0px;
-    }
-    h1{
-        font-family: "basic-sans", sans-serif;
-        font-weight: 100;
-        font-style: normal; 
-        color: var(--primary);
-        font-size:4.5rem;
-        font-weight: lighter;
-        margin-left: 0rem
-    }
-    h3{
-        color: var(--primary);
-        font-family: "basic-sans", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        margin-left:0rem;
-        margin-top:-10px;
-        font-size: 2.5rem;
-        
-        
-    } */
+h1{
+    margin: 0;
+}
+.row{
+    display: flex;
+justify-content: center;
+}
   }

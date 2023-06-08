@@ -56,12 +56,15 @@ export default function ChatRoom(props) {
     <main className="ChatRoom">
       <h1>Welcome to {roomName}!</h1>
       <div className="container chatRm">
-        {messageList.map((msg, i) => {
+        <div className="messages">
+          {messageList.map((msg, i) => {
           return <Message key={i} sender={msg.sender} message={msg.message} />;
-        })}
+        })}</div>
+        
+          </div>
 
-        <form onSubmit={handleSubmit}>
-          <input
+        <form className="msgForm" onSubmit={handleSubmit}>
+          <input className="msgInput"
             name="msg"
             onChange={handleChange}
             value={sentMessage}
@@ -69,7 +72,6 @@ export default function ChatRoom(props) {
           />
           <button id="sendBtn">send message</button>
         </form>
-      </div>
     </main>
   );
 }
