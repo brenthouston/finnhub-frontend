@@ -256,29 +256,29 @@ const TickerSearch = (props) => {
               className="row "
               style={{ padding: "0", marginTop: "0", marginRight: "0" }}
             >
-              <div className="col text-start">
-                <ul>
+              <div className="col ">
+                <ul className = 'd-flex flex-column justify-content-around'>
                   <li>
-                    <p>Price</p>
+                    <p>Price: {price}</p>
                   </li>
                   <li>
-                    <p>High</p>
+                    <p>High: {day_high}</p>
                   </li>
                   <li>
-                    <p>Low</p>
+                    <p>Low: {day_low}</p>
                   </li>
                   <li>
-                    <p>Open</p>
+                    <p>Open: {day_open}</p>
                   </li>
                   <li>
-                    <p>Day change</p>
+                    <p>Day change: {day_change}</p>
                   </li>
                   <li>
-                    <p>Volume</p>
+                    <p>Volume: {volume}</p>
                   </li>
                 </ul>
               </div>
-              <div className="col text-end">
+              {/* <div className="col text-end">
                 <ul>
                   <li>
                     <p>{price}</p>
@@ -299,7 +299,7 @@ const TickerSearch = (props) => {
                     <p>{volume}</p>
                   </li>
                 </ul>
-              </div>
+              </div> */}
                 </div>
               <div className="col d-flex d-flex justify-content-center">
               {props.username && (

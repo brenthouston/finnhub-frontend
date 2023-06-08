@@ -1,11 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function NavTabs(props) {
   const[currentPage, setCurrentPage] = useState()
 
+  useEffect(()=>{
+    const urlLink = window.location.pathname.split('/')
+    console.log(urlLink)
+    if(urlLink.includes('login')){
+      setCurrentPage('login')
+    }else if(urlLink.includes('profile')){
+      setCurrentPage('profile')
+    }else if(urlLink.includes('signals')){
+      setCurrentPage('signals')
+    }else if(urlLink.includes('home')){
+      setCurrentPage('home')
+    }else if(urlLink.includes('tickersearch')){
+      setCurrentPage('tickersearch')
+    }else if(urlLink.includes('chathub')){
+      setCurrentPage('chathub')
+    }
+    },[])
 
   return (
     <div className="nav container-fluid ">
