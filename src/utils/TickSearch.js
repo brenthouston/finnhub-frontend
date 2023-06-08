@@ -3,7 +3,7 @@ import axios from 'axios';
 async function search(query) {
 console.log(query);
 try{
-  const response = await axios.get(`https://api.stockdata.org/v1/data/quote?symbols=${query}&api_token=7zn0dYr1MzpJP8YPaekJdAaraMUfpC4MJT3aiXy7`);  
+  const response = await axios.get(`https://api.stockdata.org/v1/data/quote?symbols=${query}&api_token=${process.env.REACT_APP_TICKER_API}`);  
 console.log('API response: ',response);
 
 

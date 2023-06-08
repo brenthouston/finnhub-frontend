@@ -3,7 +3,7 @@ import axios from "axios";
 async function FinancialMarkets() {
   try {
     const response =  await axios.get(
-      `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&topics=finacial_markets&sort=LATEST&limit=8&apikey=B69YYGDXTYZTC5W0`
+      `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&topics=finacial_markets&sort=LATEST&limit=8&apikey=${process.env.REACT_APP_SIGNALS_API}`
     );
      
     return response;
