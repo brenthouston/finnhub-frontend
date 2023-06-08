@@ -38,14 +38,17 @@ body{
 }
 
 .nav{
+    position: relative;
+    display:flex;
+flex-wrap: wrap;
     width: 100vw;
-    font-size: 1.25rem;
+    font-size: clamp(13px 1.25rem 1.25rem);
     background-color: var(--hdBlk);
     font-family: "basic-sans", sans-serif;
     font-weight: 100;
     font-style: italic;
     margin-bottom: 25px;
-    margin-left: -25px
+    margin-left: -14px
    
 }
 
