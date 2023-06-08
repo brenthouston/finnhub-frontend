@@ -184,7 +184,7 @@ const TickerSearch = (props) => {
           <div className="d-flex justify-content-end">
             <form className="col card" style={{ background: "var(--cardGrn)" }}>
               <div className="form-group p-2">
-                <p style={{ padding: "0", color: "#7f7c3d", fontSize: "22px" }}>
+                <p style={{ padding: "0", color: "var(--primary)", fontSize: "22px" }}>
                   Search for Ticker
                 </p>
                 <input

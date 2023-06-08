@@ -26,7 +26,7 @@ font-style: normal; */
     --bgGrn: #15261c;
     --cardGrn:#253f30; 
     --hdBlk:  #0e1812;
-    --primary: #acaa82;
+    --primary: #b4b183;
     --accentLight: #d8d1bc;
     --accentDark: #7f7c3d;
     --accentPlum: #65293d;
@@ -80,6 +80,7 @@ h2{
     background-color: var(--cardGrn);
     border-radius: 7px;
     margin: 20px;
+    color:var(--primary)
 }
 .container.home{
     display: flex;
