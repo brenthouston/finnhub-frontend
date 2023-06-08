@@ -37,12 +37,12 @@ function App() {
         setUsername(data.data.username);
         setUserId(data.data._id)
         setIsLoggedIn(true)
+  
       }).catch(err=>{
         console.log("that token couldnt be verified")
         console.log(err)
         logout();
       })
-
     }
   },[])
 
