@@ -7,12 +7,20 @@ const API = {
     getUserByName:async(username)=>{
         try{
             const response = await axios.get(`${URL_PREFIX}/api/users/username/${username}`)
-            console.log(response)
             return (response)
         }catch (err){
             console.log(err)
         }
     },
+    getAllUsers:async()=>{
+        try{
+            const response = await axios.get(`${URL_PREFIX}/api/users`)
+            return (response)
+        }catch (err){
+            console.log(err)
+        }
+    },
+
 
     verifyToken:async(token)=>{
     try{

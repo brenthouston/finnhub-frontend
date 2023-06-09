@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 import axios from 'axios'
 import API from '../../utils/API'
@@ -37,6 +38,12 @@ export default function Home() {
     setUserSearch('')
   }
 
+  function toUserPage() {
+    navigate("/users")
+  }
+ const navigate=useNavigate()
+
+
   return (
     <div className="container home d-flex ">
       <div className="row">
@@ -67,10 +74,24 @@ export default function Home() {
             <input onChange = {handleChange} name = 'userSearch' value={userSearch} type="text" placeholder="Username" className="inputgroup-sizing-lg"></input>
             </div>
             <button onClick = {handleUserSearch} type="button" className="btn" style={{background: "#65293d", color: "#d8d1bc", display:"flex", padding:"0"}}>Search</button>
+            <button
+              type="button"
+              onClick={toUserPage}
+              className="btn search"
+              style={{
+                background: "#65293d",
+                color: "#d8d1bc",
+                display: "flex",
+                padding: "0",
+               
+              }}
+            >
+              Explore
+            </button>
             </div>
         
       </div>
-      <p style={{color: "#7f7c3d", fontSize: "14px"}}>Disclaimer: Trading in equities is risky. Information provided on this website does not constitute investment advice. There is no guarantee of profits and we will not be responsible for any losses incurred or decisions made based on the information provided here. Past performance is not an indicator of future returns. </p>
+      <p style={{color: "#7f7c3d", fontSize: "14px", marginTop:"20px"}}>Disclaimer: Trading in equities is risky. Information provided on this website does not constitute investment advice. There is no guarantee of profits and we will not be responsible for any losses incurred or decisions made based on the information provided here. Past performance is not an indicator of future returns. </p>
       <Error errorMsg = {errorMsg} show = {show} setShow = {setShow}/>
     </div>
   );
