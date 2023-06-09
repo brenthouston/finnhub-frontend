@@ -40,7 +40,12 @@ To use this application, follow this link: https://finnhub.netlify.app
 
 <img src="./assets/Signals.png">
 
-## Developers
+## GitHub
+
+Front-End: https://github.com/brenthouston/finnhub-frontend
+
+Back-End: https://github.com/thanhmhoang/finhub-backend
+
 Ian Danas: https://github.com/Ian-Danas
 
 Thanh Hoang: https://github.com/thanhmhoang
