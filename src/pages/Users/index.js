@@ -30,8 +30,9 @@ export default function Users() {
     <div className="container">
          <div className="col-9">
         <h1 style={{ fontWeight: "lighter" }}>Users</h1>
-        <h3>Explore the Community!</h3>
+        <h3 style={{marginBottom: "10px"}}>Explore the Community!</h3>
       </div>
+      <hr style={{color: "var(--primary)"}}></hr>
       <div className="row">
       {allUsers.map((user, i) => {
             return (
