@@ -1,11 +1,29 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./style.css";
 import UsersCard from "../../Components/Users";
+import API from '../../utils/API'
 
 
 export default function Users() {
+
+  const [allUsers, setAllUsers] = useState([])
   
 
+  useEffect(()=>{
+    findUsers()
+    console.log(allUsers)
+    
+  },[])
+
+  async function findUsers(){
+    try{
+      const response = await API.getAllUsers()
+      setAllUsers(response.data)
+    }catch(err){
+      console.log(err)
+    }
+  
+  }
 
 
   return (
@@ -15,7 +33,12 @@ export default function Users() {
         <h3>Explore the Community!</h3>
       </div>
       <div className="row">
-        <UsersCard/>
+      {allUsers.map((user, i) => {
+            return (
+              <UsersCard key = {user._id} profilePic= {user.profile_pic} username={user.username} investType = {user.investor_type}/>
+           );
+          })}
+     
           </div>
 
     </div>
