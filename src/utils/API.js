@@ -1,18 +1,26 @@
 import axios from 'axios'
 
-const URL_PREFIX = "https://finhub.herokuapp.com"
-// const URL_PREFIX = "http://localhost:3001"
+// const URL_PREFIX = "https://finhub.herokuapp.com"
+const URL_PREFIX = "http://localhost:3001"
 
 const API = {
     getUserByName:async(username)=>{
         try{
             const response = await axios.get(`${URL_PREFIX}/api/users/username/${username}`)
-            console.log(response)
             return (response)
         }catch (err){
             console.log(err)
         }
     },
+    getAllUsers:async()=>{
+        try{
+            const response = await axios.get(`${URL_PREFIX}/api/users`)
+            return (response)
+        }catch (err){
+            console.log(err)
+        }
+    },
+
 
     verifyToken:async(token)=>{
     try{
