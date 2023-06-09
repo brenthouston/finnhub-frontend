@@ -2,7 +2,9 @@ import React from 'react'
 import './style.css';
 import axios from 'axios'
 // const URL = 'http://localhost:3001'
-const URL_PREFIX = "https://finhub.herokuapp.com"
+//this is the correct url
+const URL = "https://finhub.herokuapp.com"
+
 
 export default function Watchlist(props) {
 
