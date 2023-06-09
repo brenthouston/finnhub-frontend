@@ -11,12 +11,13 @@ import background from "./images/finhubBG.png";
 import SignUp from "./pages/SignUp";
 import TickerSearch from "./pages/TickerSearch";
 import Signals from "./pages/Signals";
+import Users from "./pages/Users";
 
 import {useState,useEffect} from 'react'
 import API from './utils/API.js'
 
-// const URL = 'http://localhost:3001'
-const URL = 'https://finhub.herokuapp.com/'
+const URL = 'http://localhost:3001'
+// const URL = 'https://finhub.herokuapp.com/'
 
 const socket = io(URL)
 const bg =background
@@ -70,6 +71,7 @@ function App() {
         <Route path="/chatroom/:roomID" element={<ChatRoom useSocket = {socket} username={username}/>} />
         <Route path="/profile/:username" element={<Profile username = {username}/>} />
         <Route path="/signals" element={<Signals/>} />
+        <Route path="/users" element={<Users/>} />
       </Routes>
     </Router>
     </div>
