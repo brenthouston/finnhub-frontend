@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"
 import "./style.css";
 import axios from "axios";
 import Watchlist from "../../Components/Watchlist";
@@ -20,6 +21,7 @@ export default function Profile(props) {
   const [profilePic, setProfilePic] = useState("");
   const [favStock, setFavStock] = useState("");
   const [userSearch, setUserSearch] = useState("");
+  // const[toUserPage, setToUserPage] = React.useState(false)
   let url;
 
   const [show, setShow] = useState(false);
@@ -169,6 +171,11 @@ async function refreshWatchlist(){
     findUser(username);
   }, []);
 
+  function toUserPage() {
+    navigate("/users")
+  }
+ const navigate=useNavigate()
+
   return (
     <div className="container profile">
       <div className="row profile">
@@ -204,6 +211,20 @@ async function refreshWatchlist(){
               }}
             >
               Search
+            </button>
+            <button
+              type="button"
+              onClick={toUserPage}
+              className="btn search"
+              style={{
+                background: "#65293d",
+                color: "#d8d1bc",
+                display: "flex",
+                padding: "0",
+                marginTop:"10px"
+              }}
+            >
+              Explore
             </button>
           </div>
         </form>
