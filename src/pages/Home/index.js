@@ -48,7 +48,7 @@ export default function Home() {
     <div className="container home d-flex ">
       <div className="row">
         <section className="col-8">
-          <h1 style={{fontWeight:"lighter"}}>Dashboard</h1>
+          <h1 style={{fontWeight:"lighter"}}>Welcome!</h1>
           <h3>What is FinHub?</h3>
           <div className="w_card card">
             <p style={{ padding: '25px 20px 0 20px', fontSize:"clamp(12px 16px 18px) !important"}}>

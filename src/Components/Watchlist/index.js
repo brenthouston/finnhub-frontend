@@ -34,13 +34,13 @@ export default function Watchlist(props) {
     <div className="row">
       
      <div className="d-flex justify-content-around">
-        <div className="ticker"><p style={{ fontFamily: "basic-sans, sans-serif", fontWeight:"100", fontSize:"2rem", margin:"0"}}><p >Ticker</p>{props.tickerName}</p>
+        <div className="ticker"><p style={{ fontFamily: "basic-sans, sans-serif", fontWeight:"100", fontSize:"2rem", margin:"0"}}><p style={{marginTop:""}}>Ticker</p>{props.tickerName}</p>
         </div>
-        <div className="price"><h4 style={{fontSize: "2rem", color: "var(--primary)"}} > <p>Price</p>${props.price}</h4>
+        <div className="price"><h4 style={{fontSize: "1.5rem", color: "var(--primary)",margin:"0"}} > <p>Price</p>${props.price}</h4>
         </div>
 
 
-        <div className={props.day_change.includes('-')?"percent_change_neg":"percent_change_pos"}><h4 style={{fontSize:"2rem"}}><p>Change</p>{props.day_change}%</h4>
+        <div className={props.day_change.includes('-')?"percent_change_neg":"percent_change_pos"}><h4 style={{fontSize:"1.5rem", marginTop:"12px"}}><p>Change</p>{props.day_change}%</h4>
         </div>
      
         {props.username === props.currentUser && <button onClick = {dltBtn} id = {props.stockID} type="button" className="btn delete" style={{background: "#65293d", width:"6rem",color: "#d8d1bc", margin:"15px", height: "38px"}}>Delete</button>}
